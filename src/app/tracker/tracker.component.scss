@@ -1,0 +1,129 @@
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.80); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+
+$not-valid: #d05921;
+
+@keyframes blinker {  
+  30% { opacity: 1; }
+  50% { opacity: 0; }
+  70% { opacity: 1; }
+}
+
+a {
+  cursor: pointer;
+}
+
+.bottom-action-container {
+  padding: 20px;
+}
+
+.state-button {
+  display: block;
+  background-color: #e2e2e2;
+  text-transform: uppercase;
+  text-align: center;
+  width: 74px;
+  height: 74px;
+  line-height: 74px;
+  position: absolute;
+  top:10px;
+  left:10px;
+
+  &__playing {
+    background-color: green;
+    color: white;
+  }
+
+}
+
+.trackings {
+
+
+}
+
+.tracking {
+  background-color: white;
+  margin-bottom: 1px;
+  height: 94px;
+  position: relative;
+
+  &__info-container {
+    top:10px;
+    bottom:10px;
+    left:120px;
+    right: 10px;
+    position: absolute;
+  }
+
+  &__title {
+    color:#999;
+    font-size: 11px;
+    padding-top: 5px;
+  }
+
+  &__jira-id {
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    cursor:pointer;
+
+    &_not-set {
+      font-weight: normal;
+      color: $not-valid;
+      font-size: 20px;
+      bottom: 15px;
+    }
+  }
+
+  &__comment {
+    left:150px;
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+  }
+
+  &__comment-input {
+    width: calc(100% - 100px);
+    padding: 7px 10px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #e2e2e2;
+
+    &_not-valid {
+      border: 1px solid $not-valid;
+    }
+
+  }
+
+  &__time {
+    position: absolute;
+    right:10px;
+    top:10px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  &__actions {
+    position: absolute;
+    bottom:0px;
+    right: 10px;
+
+    &_icon {
+      font-size: 18px;
+    }
+
+    a {
+      color: #666;
+    }
+
+  }
+
+}
+
+.date-navigation {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}

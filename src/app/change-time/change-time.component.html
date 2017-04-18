@@ -1,0 +1,16 @@
+
+<h3 md-dialog-title>Rediger tiden! på denne tracking</h3>
+
+
+<md-dialog-content>
+  <span>HH</span>
+  <input type="number" [(ngModel)]="hours" />
+  <span>MM</span>
+  <input type="number" [(ngModel)]="minutes" />
+</md-dialog-content>
+
+
+<md-dialog-actions>
+  <button md-dialog-close md-button>Anuller</button>
+  <button md-raised-button color="primary" (click)="saveTime()">Opdater</button>
+</md-dialog-actions>
