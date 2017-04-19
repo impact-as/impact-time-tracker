@@ -90,6 +90,22 @@ export class TrackingService {
 		});
 	}
 
+	public getHoursPrWeek() {
+		let curr = new Date;
+		let firstday = new Date(curr.setDate(curr.getDate() - curr.getDay()+1));
+		let lastday = new Date(curr.setDate(curr.getDate() - curr.getDay()+7));
+		let firstdayString = new DateHelper().dateToDateString(firstday);
+		let lastdayString = new DateHelper().dateToDateString(lastday);
+
+		let trackings = this.trackings.filter( (item:TrackingInterface) => {
+			return item.date > firstdayString && item.date < lastdayString;
+		});
+		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
+		console.log(sum);
+
+		return sum;
+	}
+
 	private saveTracking(tracking:TrackingInterface) {
 		this.databaseService.update(tracking);
 	}

@@ -20,6 +20,7 @@ import { ChangeJiraIdComponent } from './change-jira-id/change-jira-id.component
 import { HeaderComponent } from './header/header.component';
 
 import { DatabaseService } from './services/database.service';
+import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 
 @NgModule({
 	declarations: [
@@ -29,11 +30,13 @@ import { DatabaseService } from './services/database.service';
 		FilterDatePipe,
 		ChangeTimeComponent,
 		ChangeJiraIdComponent,
-		HeaderComponent
+		HeaderComponent,
+		WeekgraphComponent
 	],
 	entryComponents: [
 		ChangeTimeComponent,
-		ChangeJiraIdComponent
+		ChangeJiraIdComponent,
+		WeekgraphComponent
 	],
 	imports: [
 		BrowserModule,
