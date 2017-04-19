@@ -70,13 +70,6 @@ export class TrackerComponent implements OnInit {
 		this.trackingService.updateComment(tracking._id, tracking.comment);
 	}
 
-	public commentPress(evn, tracking: TrackingInterface) {
-		if (evn.keyCode === 13) { // If ENTER is pressed
-			evn.target.blur();
-			this.editComment(tracking);
-		}
-	}
-
 	public toggleTracking(id: string, start: boolean) {
 		if (start) {
 			this.trackingService.start(id);

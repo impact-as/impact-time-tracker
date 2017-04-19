@@ -32,7 +32,7 @@
       </div>
 
       <div class="tracking__comment">
-        <input class="tracking__comment-input" [class.tracking__comment-input_not-valid]="tracking.comment === ''" [(ngModel)]="tracking.comment" (keyup)="commentPress($event, tracking)" />
+        <input class="tracking__comment-input" (blur)="editComment(tracking)" [class.tracking__comment-input_not-valid]="tracking.comment === ''" [(ngModel)]="tracking.comment" />
       </div>
 
       <div class="tracking__time" (click)="openChangeTimeDialog(tracking)" [class.blink_me]="tracking._id === trackingService.currentTracking._id">
