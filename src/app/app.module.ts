@@ -19,6 +19,7 @@ import { ChangeTimeComponent } from './change-time/change-time.component';
 import { ChangeJiraIdComponent } from './change-jira-id/change-jira-id.component';
 import { HeaderComponent } from './header/header.component';
 
+import { DatabaseService } from './services/database.service';
 
 @NgModule({
 	declarations: [
@@ -41,7 +42,7 @@ import { HeaderComponent } from './header/header.component';
 		BrowserAnimationsModule,
 		MaterialModule.forRoot()
 	],
-	providers: [TrackingService, StorageService, JiraCaseService],
+	providers: [TrackingService, StorageService, JiraCaseService, DatabaseService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

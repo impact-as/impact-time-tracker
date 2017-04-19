@@ -34,7 +34,7 @@ export class TrackerComponent implements OnInit {
 	}
 
 	public openChangeTimeDialog(tracking: TrackingInterface) {
-		this.trackingService.pause(tracking.id);
+		this.trackingService.pause(tracking._id);
 		const instance = this.dialog.open(ChangeTimeComponent);
 		instance.componentInstance['tracking'] = tracking;
 	}
@@ -59,7 +59,7 @@ export class TrackerComponent implements OnInit {
 	}
 
 	public editComment(tracking: TrackingInterface) {
-		this.trackingService.updateComment(tracking.id, tracking.comment);
+		this.trackingService.updateComment(tracking._id, tracking.comment);
 	}
 
 	public commentPress(evn, tracking: TrackingInterface) {

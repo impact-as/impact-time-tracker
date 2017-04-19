@@ -4,12 +4,6 @@
 
 $not-valid: #d05921;
 
-@keyframes blinker {  
-  30% { opacity: 1; }
-  50% { opacity: 0; }
-  70% { opacity: 1; }
-}
-
 a {
   cursor: pointer;
 }
@@ -29,6 +23,7 @@ a {
   position: absolute;
   top:10px;
   left:10px;
+  border-radius: 50%;
 
   &__playing {
     background-color: green;
@@ -66,26 +61,26 @@ a {
     font-size: 25px;
     font-weight: bold;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     cursor:pointer;
 
     &_not-set {
       font-weight: normal;
       color: $not-valid;
       font-size: 20px;
-      bottom: 15px;
+      bottom: 5px;
     }
   }
 
   &__comment {
-    left:150px;
-    right: 10px;
-    bottom: 10px;
+    left:170px;
+    right: 20px;
+    bottom: 0px;
     position: absolute;
   }
 
   &__comment-input {
-    width: calc(100% - 100px);
+    width: calc(100% - 110px);
     padding: 7px 10px;
     border-radius: 4px;
     outline: none;
@@ -99,16 +94,17 @@ a {
 
   &__time {
     position: absolute;
-    right:10px;
-    top:10px;
+    right:0px;
+    top:0px;
     font-size: 30px;
     font-weight: bold;
+    cursor:pointer;
   }
 
   &__actions {
     position: absolute;
     bottom:0px;
-    right: 10px;
+    right: 0px;
 
     &_icon {
       font-size: 18px;

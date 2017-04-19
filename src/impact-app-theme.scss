@@ -15,3 +15,13 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-dark, $candy-ap
   color:mat-color($candy-app-dark, 300);
   background-color: mat-color($candy-app-dark, 800);
 }
+
+@keyframes blinker {  
+  30% { opacity: 1; }
+  50% { opacity: 0; }
+  70% { opacity: 1; }
+}
+
+.blink_me {
+  animation: blinker 2s linear infinite;
+}

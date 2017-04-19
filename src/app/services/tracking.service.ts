@@ -1,36 +1,46 @@
 import { Injectable } from '@angular/core';
 
 import { TrackingInterface } from '../models/tracking.interface';
-import { JiraCaseInterface } from '../models/jira-case.interface'
+import { JiraCaseInterface } from '../models/jira-case.interface';
 import { TrackInterface } from '../models/track.interface';
 
 import { GUID } from '../helpers/GUID';
 import { DateHelper } from '../helpers/date-helper';
 
 import { StorageService } from '../services/storage.service';
+import { DatabaseService } from '../services/database.service';
+
 
 @Injectable()
 export class TrackingService {
 
 
-	public currentTracking: TrackingInterface = { id: "000" } as TrackingInterface;
-	public trackings: TrackingInterface[];
+	public currentTracking: TrackingInterface = { _id: '000' } as TrackingInterface;
+	public trackings: TrackingInterface[] = [];
 
 	public track:TrackInterface  = { active:false } as TrackInterface;
 
-	constructor(private storageService: StorageService) {
+	constructor(private storageService: StorageService, private databaseService: DatabaseService) {
 
-		this.trackings = this.getTrackings();
+		this.getTrackings();
+
 	}
 
-	public getTrackings(): TrackingInterface[] {
-		const trackings = this.storageService.read<TrackingInterface[]>('trackings');
-		return trackings !== null ? trackings : [];
+	public getTrackings() {
+		// const trackings = this.storageService.read<TrackingInterface[]>('trackings');
+		this.databaseService.findAll().then( (trackings) => {
+			const tracks = trackings !== null ? trackings as TrackingInterface[] : [];
+			tracks.forEach( (item) => {
+				this.trackings.push(item);
+			});
+			console.log(trackings);
+		});
+		//this.trackings = trackings !== null ? trackings as TrackingInterface[] : [];
 	}
 
 	public add(jiraId: string = "", date: Date = null): TrackingInterface {
 		let tracking: TrackingInterface = {} as TrackingInterface;
-		tracking.id = new GUID().toString();
+		tracking._id = new GUID().toString();
 		tracking.comment = "";
 		tracking.jiraId = jiraId;
 		tracking.inSync = false;
@@ -39,21 +49,21 @@ export class TrackingService {
 		tracking.time = 0;
 
 		this.trackings.push(tracking);
-		this.pushToStorage();
-		this.start(tracking.id);
+		this.databaseService.insert(tracking);
+		this.start(tracking._id);
 
 		return tracking;
 	}
 
 	public delete(id: string) {
-		if (id === this.currentTracking.id) {
+		if (id === this.currentTracking._id) {
 			this.pause(id);
 		}
 
 		this.trackings.forEach((tracking, index) => {
-			if (id === tracking.id) {
+			if (id === tracking._id) {
 				this.trackings.splice(index, 1);
-				this.pushToStorage();
+				this.databaseService.remove(tracking._id);
 			}
 		});
 
@@ -61,10 +71,10 @@ export class TrackingService {
 
 	public updateJiraCase(tracking: TrackingInterface, jiraCase:JiraCaseInterface) {
 		this.trackings.forEach((tr) => {
-			if (tracking.id === tr.id) {
+			if (tracking._id === tr._id) {
 				tracking.jiraId = jiraCase.jiraId;
 				tracking.title = jiraCase.title;
-				this.pushToStorage();
+				this.saveTracking(tracking);
 			}
 		});
 	}
@@ -72,22 +82,22 @@ export class TrackingService {
 
 	public updateTime(tracking: TrackingInterface, seconds: number) {
 		this.trackings.forEach((tr) => {
-			if (tracking.id === tr.id) {
+			if (tracking._id === tr._id) {
 				tracking.time = seconds;
-				this.pushToStorage();
+				this.saveTracking(tracking);
 			}
 		});
 	}
 
-	private pushToStorage() {
-		this.storageService.write('trackings', this.trackings);
+	private saveTracking(tracking:TrackingInterface) {
+		this.databaseService.update(tracking);
 	}
 
 	public updateComment(id: string, comment: string) {
 		this.trackings.forEach((tracking) => {
-			if (id === tracking.id) {
+			if (id === tracking._id) {
 				tracking.comment = comment;
-				this.pushToStorage();
+				this.saveTracking(tracking);
 			}
 		});
 	}
@@ -95,7 +105,7 @@ export class TrackingService {
 	private timer;
 	public start(id: string) {
 		this.trackings.forEach((tracking) => {
-			if (id === tracking.id) {
+			if (id === tracking._id) {
 
 				this.currentTracking = tracking;
 				this.track.start = new Date();
@@ -111,7 +121,7 @@ export class TrackingService {
 	}
 	public pause(id: string) {
 		this.track.active = false;
-		this.currentTracking = { id: "000" } as TrackingInterface;
+		this.currentTracking = { _id: '000' } as TrackingInterface;
 		clearInterval(this.timer);
 	}
 
@@ -121,7 +131,7 @@ export class TrackingService {
 		this.track.total = this.track.original + this.track.diff;
 
 		this.currentTracking.time = Math.floor(this.track.total);
-		this.pushToStorage();
+		this.saveTracking(this.currentTracking);
 	}
 
 }
