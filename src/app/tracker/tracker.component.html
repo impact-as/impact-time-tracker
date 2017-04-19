@@ -1,9 +1,16 @@
 <app-header></app-header>
 
 <div class="date-navigation">
-  <button md-raised-button color="primary" (click)="changeDay(false)">< Forrige</button>
-  <a (click)="gotoCurrentDate()">{{selectedDay | date:'fullDate'}}</a>
-  <button md-raised-button color="primary" (click)="changeDay(true)">Næste ></button>
+  <!--<button md-raised-button color="primary" (click)="changeDay(false)">< Forrige</button>
+  <a (click)="gotoDate()">{{selectedDay | date:'fullDate'}}</a>
+  <button md-raised-button color="primary" (click)="changeDay(true)">Næste ></button>-->
+
+  <div class="days">
+    <a *ngFor="let day of availableDays" (click)="gotoDate(day)" class="day" [class.day_selected]="day.getDate() == selectedDay.getDate()"[class.day_current]="day.getDate() == currentDay.getDate()">
+      {{day | date:'EEE'}}
+      <span class="day__date">{{day | date:'dd/MM'}}</span>
+      </a>
+  </div>
 </div>
 
 <div class="trackings">
@@ -12,19 +19,16 @@
     <a class="state-button" 
       [class.state-button__playing]="tracking._id === trackingService.currentTracking._id" 
       (click)="toggleTracking(tracking._id, tracking._id !== trackingService.currentTracking._id)">
-        <span [hidden]="tracking._id !== trackingService.currentTracking._id">stop</span>
-        <span [hidden]="tracking._id === trackingService.currentTracking._id">start</span>
+        <span [hidden]="tracking._id !== trackingService.currentTracking._id"><i class="material-icons">pause_circle_filled</i></span>
+        <span [hidden]="tracking._id === trackingService.currentTracking._id"><i class="material-icons">play_circle_filled</i></span>
     </a>
 
     <div class=tracking__info-container>     
 
-      <div class="tracking__title">
-        {{tracking.title}}
-      </div>
-
       <div class="tracking__jira-id" [class.tracking__jira-id_not-set]="tracking.jiraId === ''" (click)="openSelectJiraIdDialog(tracking)">
-        <span [hidden]="tracking.jiraId === ''" >{{tracking.jiraId}}</span>
-        <span [hidden]="tracking.jiraId !== ''" >JIRA CASE</span>
+        <span [hidden]="tracking.jiraId === ''" >{{tracking.jiraId}} </span>
+        <span [hidden]="tracking.jiraId !== ''" >Ingen Jira case </span>
+        <span class="tracking__title">{{tracking.title}}</span>
       </div>
 
       <div class="tracking__comment">

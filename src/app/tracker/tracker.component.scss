@@ -2,7 +2,8 @@
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
 
-$not-valid: #d05921;
+$not-valid: rgba(#d05921, 0.3);
+$playing: #94C11E;
 
 a {
   cursor: pointer;
@@ -14,38 +15,49 @@ a {
 
 .state-button {
   display: block;
-  background-color: #e2e2e2;
-  text-transform: uppercase;
+  // background-color: #e2e2e2;
+  // text-transform: uppercase;
   text-align: center;
-  width: 74px;
-  height: 74px;
-  line-height: 74px;
+  // width: 74px;
+  // height: 74px;
+  // line-height: 74px;
   position: absolute;
   top:10px;
   left:10px;
-  border-radius: 50%;
+  color:#e2e2e2;
+  // border-radius: 50%;
+  // transition: background-color 0.3s;
+
+  i {
+    font-size: 74px;
+  }
 
   &__playing {
-    background-color: green;
-    color: white;
+    color: $playing;
+    // transition: background-color 0.3s;
+    // color: white;
   }
 
 }
 
 .trackings {
-
+  padding: 20px;
 
 }
 
 .tracking {
-  background-color: white;
   margin-bottom: 1px;
   height: 94px;
   position: relative;
+  border-top: 1px solid #e2e2e2;
+
+  &:first-child {
+    border-top:none;
+  }
 
   &__info-container {
-    top:10px;
-    bottom:10px;
+    top:15px;
+    bottom:15px;
     left:120px;
     right: 10px;
     position: absolute;
@@ -55,6 +67,7 @@ a {
     color:#999;
     font-size: 11px;
     padding-top: 5px;
+    font-weight: normal;
   }
 
   &__jira-id {
@@ -66,16 +79,16 @@ a {
 
     &_not-set {
       font-weight: normal;
-      color: $not-valid;
+      color: black;
       font-size: 20px;
       bottom: 5px;
     }
   }
 
   &__comment {
-    left:170px;
+    left:0px;
     right: 20px;
-    bottom: 0px;
+    top: 0px;
     position: absolute;
   }
 
@@ -95,7 +108,7 @@ a {
   &__time {
     position: absolute;
     right:0px;
-    top:0px;
+    top:-5px;
     font-size: 30px;
     font-weight: bold;
     cursor:pointer;
@@ -103,7 +116,7 @@ a {
 
   &__actions {
     position: absolute;
-    bottom:0px;
+    bottom:3px;
     right: 0px;
 
     &_icon {
@@ -111,7 +124,7 @@ a {
     }
 
     a {
-      color: #666;
+      color:#999;
     }
 
   }
@@ -119,7 +132,50 @@ a {
 }
 
 .date-navigation {
+  background-color: whitesmoke;
   padding: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+
+.days {
+  text-align: center;
+  width: 100%;
+}
+
+.day {
+  color: lightgray;
+  display: inline-block;
+  width: 55px;
+  // padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &_current {
+    color: #CCC;
+
+    .day__date {
+      background-color: #CCC;
+      color: white;
+    }
+  }
+  &_selected {
+    color: #17B9D6;
+
+    .day__date {
+      background-color: #17B9D6;
+      color: white;
+    }
+  }
+
+  &__date {
+    height:45px;
+    width:45px;
+    line-height: 45px;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 12px;
+
+  }
 }

@@ -10,6 +10,8 @@ import { DateHelper } from '../helpers/date-helper';
 import { StorageService } from '../services/storage.service';
 import { DatabaseService } from '../services/database.service';
 
+import { TrackingStatus } from '../models/tracking.status';
+
 
 @Injectable()
 export class TrackingService {
@@ -33,18 +35,17 @@ export class TrackingService {
 			tracks.forEach( (item) => {
 				this.trackings.push(item);
 			});
-			console.log(trackings);
 		});
 		//this.trackings = trackings !== null ? trackings as TrackingInterface[] : [];
 	}
 
-	public add(jiraId: string = "", date: Date = null): TrackingInterface {
-		let tracking: TrackingInterface = {} as TrackingInterface;
+	public add(jiraId: string = '', date: Date = null): TrackingInterface {
+		const tracking: TrackingInterface = {} as TrackingInterface;
 		tracking._id = new GUID().toString();
-		tracking.comment = "";
+		tracking.comment = '';
 		tracking.jiraId = jiraId;
-		tracking.inSync = false;
-		let newDate = date != null ? date : new Date();
+		tracking.status = TrackingStatus.READY;
+		const newDate = date != null ? date : new Date();
 		tracking.date = new DateHelper().dateToDateString(newDate);
 		tracking.time = 0;
 
@@ -102,7 +103,7 @@ export class TrackingService {
 		});
 	}
 
-	private timer;
+	private timer = null;
 	public start(id: string) {
 		this.trackings.forEach((tracking) => {
 			if (id === tracking._id) {

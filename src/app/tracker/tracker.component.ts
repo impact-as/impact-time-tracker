@@ -13,6 +13,8 @@ import { ChangeJiraIdComponent } from '../change-jira-id/change-jira-id.componen
 
 })
 export class TrackerComponent implements OnInit {
+
+	public availableDays:Date[] = [];
 	public currentDay: Date;
 	public selectedDay: Date;
 	public trackings: TrackingInterface[];
@@ -26,10 +28,16 @@ export class TrackerComponent implements OnInit {
 		this.selectedDay = new Date();
 		this.trackings = this.trackingService.trackings;
 
+		for(var i=0; i<15; i++) {
+			let myDate = new Date();
+			myDate.setDate(this.selectedDay.getDate() + (-7 + i));
+			this.availableDays.push(myDate);
+		}
+
 	}
 
-	public gotoCurrentDate() {
-		const myDate = new Date();
+	public gotoDate(date:Date = new Date()) {
+		const myDate = date;
 		this.selectedDay = myDate;
 	}
 
@@ -84,7 +92,6 @@ export class TrackerComponent implements OnInit {
 
 	public addNewTracking(jiraId: string = '') {
 		const newTracking = this.trackingService.add(jiraId, this.selectedDay);
-
 	}
 	ngOnInit() {
 
