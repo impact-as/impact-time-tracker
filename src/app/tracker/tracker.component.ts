@@ -18,6 +18,7 @@ export class TrackerComponent implements OnInit {
 	public currentDay: Date;
 	public selectedDay: Date;
 	public trackings: TrackingInterface[];
+	public totalDayHours: number = 0;
 
 	public editCommentId: string = '';
 	public editCommentVal: string = '';
@@ -28,8 +29,22 @@ export class TrackerComponent implements OnInit {
 		this.selectedDay = new Date();
 		this.trackings = this.trackingService.trackings;
 
-		for(var i=0; i<15; i++) {
-			let myDate = new Date();
+		this.addDays();
+
+
+		// update dayhours
+		setTimeout( () => {
+			this.updateDayHours();
+		}, 1000);
+		setInterval( () => {
+			this.updateDayHours();
+		}, 60 * 1000);
+
+	}
+
+	public addDays() {
+		for(let i = 0; i < 15; i++) {
+			const myDate = new Date();
 			myDate.setDate(this.selectedDay.getDate() + (-7 + i));
 			this.availableDays.push(myDate);
 		}
@@ -39,23 +54,20 @@ export class TrackerComponent implements OnInit {
 	public gotoDate(date:Date = new Date()) {
 		const myDate = date;
 		this.selectedDay = myDate;
+		this.updateDayHours();
 	}
 
 	public openChangeTimeDialog(tracking: TrackingInterface) {
 		this.trackingService.pause(tracking._id);
 		const instance = this.dialog.open(ChangeTimeComponent);
 		instance.componentInstance['tracking'] = tracking;
+		instance.afterClosed().subscribe( () => {
+			this.updateDayHours();
+		});
 	}
 
-	public changeDay(forward: boolean) {
-		let myDate = new Date();
-		if (forward) {
-			myDate.setDate(this.selectedDay.getDate() + 1);
-			this.selectedDay = myDate;
-		} else {
-			myDate.setDate(this.selectedDay.getDate() - 1);
-			this.selectedDay = myDate;
-		}
+	public updateDayHours() {
+		this.totalDayHours = this.trackingService.getHoursPrDay(this.selectedDay);
 	}
 
 	public openSelectJiraIdDialog(tracking: TrackingInterface) {

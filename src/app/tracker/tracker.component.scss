@@ -13,6 +13,10 @@ a {
   padding: 20px;
 }
 
+.day-summary {
+  padding: 20px;
+}
+
 .state-button {
   display: block;
   // background-color: #e2e2e2;
@@ -41,8 +45,7 @@ a {
 }
 
 .trackings {
-  padding: 20px;
-
+  padding: 0px 20px;
 }
 
 .tracking {
@@ -124,7 +127,7 @@ a {
     }
 
     a {
-      color:#999;
+      color:#CCC;
     }
 
   }

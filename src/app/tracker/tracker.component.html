@@ -1,16 +1,16 @@
 <app-header></app-header>
 
 <div class="date-navigation">
-  <!--<button md-raised-button color="primary" (click)="changeDay(false)">< Forrige</button>
-  <a (click)="gotoDate()">{{selectedDay | date:'fullDate'}}</a>
-  <button md-raised-button color="primary" (click)="changeDay(true)">Næste ></button>-->
-
   <div class="days">
     <a *ngFor="let day of availableDays" (click)="gotoDate(day)" class="day" [class.day_selected]="day.getDate() == selectedDay.getDate()"[class.day_current]="day.getDate() == currentDay.getDate()">
       {{day | date:'EEE'}}
       <span class="day__date">{{day | date:'dd/MM'}}</span>
       </a>
   </div>
+</div>
+
+<div class="day-summary">
+  Der er i alt reigstreret {{totalDayHours | formatTime}} timer for dagen
 </div>
 
 <div class="trackings">
@@ -23,7 +23,7 @@
         <span [hidden]="tracking._id === trackingService.currentTracking._id"><i class="material-icons">play_circle_filled</i></span>
     </a>
 
-    <div class=tracking__info-container>     
+    <div class=tracking__info-container>
 
       <div class="tracking__jira-id" [class.tracking__jira-id_not-set]="tracking.jiraId === ''" (click)="openSelectJiraIdDialog(tracking)">
         <span [hidden]="tracking.jiraId === ''" >{{tracking.jiraId}} </span>

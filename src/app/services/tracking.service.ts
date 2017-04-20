@@ -19,8 +19,9 @@ export class TrackingService {
 
 	public currentTracking: TrackingInterface = { _id: '000' } as TrackingInterface;
 	public trackings: TrackingInterface[] = [];
+	public totalDayHours: number = 0;
 
-	public track:TrackInterface  = { active:false } as TrackInterface;
+	public track: TrackInterface  = { active: false } as TrackInterface;
 
 	constructor(private storageService: StorageService, private databaseService: DatabaseService) {
 
@@ -29,14 +30,12 @@ export class TrackingService {
 	}
 
 	public getTrackings() {
-		// const trackings = this.storageService.read<TrackingInterface[]>('trackings');
 		this.databaseService.findAll().then( (trackings) => {
 			const tracks = trackings !== null ? trackings as TrackingInterface[] : [];
 			tracks.forEach( (item) => {
 				this.trackings.push(item);
 			});
 		});
-		//this.trackings = trackings !== null ? trackings as TrackingInterface[] : [];
 	}
 
 	public add(jiraId: string = '', date: Date = null): TrackingInterface {
@@ -70,7 +69,7 @@ export class TrackingService {
 
 	}
 
-	public updateJiraCase(tracking: TrackingInterface, jiraCase:JiraCaseInterface) {
+	public updateJiraCase(tracking: TrackingInterface, jiraCase: JiraCaseInterface) {
 		this.trackings.forEach((tr) => {
 			if (tracking._id === tr._id) {
 				tracking.jiraId = jiraCase.jiraId;
@@ -91,18 +90,26 @@ export class TrackingService {
 	}
 
 	public getHoursPrWeek() {
-		let curr = new Date;
-		let firstday = new Date(curr.setDate(curr.getDate() - curr.getDay()+1));
-		let lastday = new Date(curr.setDate(curr.getDate() - curr.getDay()+7));
-		let firstdayString = new DateHelper().dateToDateString(firstday);
-		let lastdayString = new DateHelper().dateToDateString(lastday);
+		const curr = new Date;
+		const firstday = new Date(curr.setDate(curr.getDate() - curr.getDay()+1));
+		const lastday = new Date(curr.setDate(curr.getDate() - curr.getDay()+7));
+		const firstdayString = new DateHelper().dateToDateString(firstday);
+		const lastdayString = new DateHelper().dateToDateString(lastday);
 
-		let trackings = this.trackings.filter( (item:TrackingInterface) => {
-			return item.date > firstdayString && item.date < lastdayString;
+		const trackings = this.trackings.filter( (item:TrackingInterface) => {
+			return item.date >= firstdayString && item.date <= lastdayString;
 		});
 		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
-		console.log(sum);
 
+		return sum;
+	}
+
+	public getHoursPrDay(day:Date) {
+		const dayString = new DateHelper().dateToDateString(day);
+		let trackings = this.trackings.filter( (item:TrackingInterface) => {
+			return item.date === dayString;
+		});
+		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
 		return sum;
 	}
 

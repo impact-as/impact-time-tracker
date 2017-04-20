@@ -5,7 +5,7 @@ import { TrackingService } from '../services/tracking.service';
 @Component({
   selector: 'app-weekgraph',
   templateUrl: './weekgraph.component.html',
-  styleUrls: ['./weekgraph.component.css']
+  styleUrls: ['./weekgraph.component.scss']
 })
 export class WeekgraphComponent implements OnInit {
 
