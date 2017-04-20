@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+import { StorageService } from './storage.service';
 
 import { JiraCaseInterface } from '../models/jira-case.interface';
 
@@ -10,8 +13,33 @@ export class JiraCaseService {
 
 	private searchItems: JiraCaseInterface[] = [];
 
-	constructor() {
+	constructor(private http: Http, private storageService: StorageService) {
+
+		this.getAssigneeCases('mst');
+
 		this.generateDummyData();
+
+	}
+
+	public getAssigneeCases(user:string) {
+
+		this.http.get(`https://jira.impact.dk/rest/api/2/search?jql=assignee=${user}`).subscribe( (res) => {
+			if(res.status === 200) {
+				const body = res.json();
+				const cases: JiraCaseInterface[] = [];
+				body.issues.forEach( item => {
+					const jiracase: JiraCaseInterface = {} as JiraCaseInterface;
+					jiracase.jiraId = item.key;
+					jiracase.title = item.fields.summary;
+					cases.push(jiracase);
+				});
+
+				this.storageService.write('assigneeCases', cases);
+
+			} else {
+				// login
+			}
+		});
 	}
 
 	public search(term) {
@@ -35,9 +63,15 @@ export class JiraCaseService {
 		this.favorites.push(jira4);
 		this.favorites.push(jira5);
 
-		this.assignedToMe.push(jira2);
-		this.assignedToMe.push(jira6);
-		this.assignedToMe.push(jira7);
+
+		const assignedToMeCases: JiraCaseInterface[] = this.storageService.read<JiraCaseInterface[]>('assigneeCases');
+		assignedToMeCases.forEach( item => {
+			this.assignedToMe.push(item);
+		});
+
+		// this.assignedToMe.push(jira2);
+		// this.assignedToMe.push(jira6);
+		// this.assignedToMe.push(jira7);
 
 		this.searchItems.push(jira1);
 		this.searchItems.push(jira2);

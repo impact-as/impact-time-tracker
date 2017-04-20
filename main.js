@@ -7,12 +7,12 @@ let win;
 function createWindow () {
   
   win = new BrowserWindow({width: 1500, height: 600});
-  // win.loadURL(url.format({
-  //   pathname: path.join(__dirname, '/dist/index.html'),
-  //   protocol: 'file:',
-  //   slashes: true
-  // }));
-  win.loadURL("http://localhost:4200/");
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, '/dist/index.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
+  // win.loadURL("http://localhost:4200/");
 
   win.webContents.openDevTools()
 
