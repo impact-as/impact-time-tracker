@@ -20,6 +20,7 @@ import { ChangeJiraIdComponent } from './change-jira-id/change-jira-id.component
 import { HeaderComponent } from './header/header.component';
 
 import { DatabaseService } from './services/database.service';
+import { LoginService } from './services/login.service';
 import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 
 @NgModule({
@@ -45,7 +46,7 @@ import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 		BrowserAnimationsModule,
 		MaterialModule.forRoot()
 	],
-	providers: [TrackingService, StorageService, JiraCaseService, DatabaseService],
+	providers: [TrackingService, StorageService, JiraCaseService, DatabaseService, LoginService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

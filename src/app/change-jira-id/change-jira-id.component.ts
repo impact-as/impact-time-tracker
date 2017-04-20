@@ -25,7 +25,11 @@ export class ChangeJiraIdComponent implements OnInit {
 
 	constructor(private jiraCaseService: JiraCaseService, 
 				private trackingService:TrackingService,
-				private dialog:MdDialog) { }
+				private dialog:MdDialog) { 
+
+			this.jiraCaseService.getAssigneeCases('currentuser()');
+
+				}
 
 	clickJiraCase(jiraCase: JiraCaseInterface) {
 		this.trackingService.updateJiraCase(this.tracking, jiraCase);
@@ -33,13 +37,14 @@ export class ChangeJiraIdComponent implements OnInit {
 	}
 
 	searchFieldChange() {
-		this.searchResult = this.jiraCaseService.search(this.searchTerm);
+		this.jiraCaseService.search(this.searchTerm).then( (items:JiraCaseInterface[])=> {
+			this.searchResult = items;
+		});
 	}
 
 	ngOnInit() {
 		this.assignedToMe = this.jiraCaseService.assignedToMe;
 		this.favorites = this.jiraCaseService.favorites;
-
 	}
 
 }
