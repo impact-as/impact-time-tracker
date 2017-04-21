@@ -22,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
 import { DatabaseService } from './services/database.service';
 import { LoginService } from './services/login.service';
 import { WeekgraphComponent } from './weekgraph/weekgraph.component';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 @NgModule({
 	declarations: [
@@ -32,12 +33,14 @@ import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 		ChangeTimeComponent,
 		ChangeJiraIdComponent,
 		HeaderComponent,
-		WeekgraphComponent
+		WeekgraphComponent,
+		ConfirmDeleteComponent
 	],
 	entryComponents: [
 		ChangeTimeComponent,
 		ChangeJiraIdComponent,
-		WeekgraphComponent
+		WeekgraphComponent,
+		ConfirmDeleteComponent
 	],
 	imports: [
 		BrowserModule,

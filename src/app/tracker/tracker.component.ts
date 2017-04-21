@@ -5,6 +5,7 @@ import { TrackingInterface } from '../models/tracking.interface';
 import { TrackingService } from '../services/tracking.service';
 import { ChangeTimeComponent } from '../change-time/change-time.component';
 import { ChangeJiraIdComponent } from '../change-jira-id/change-jira-id.component';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
 	selector: 'app-tracker',
@@ -92,7 +93,9 @@ export class TrackerComponent implements OnInit {
 	}
 
 	public deleteTracking(id: string) {
-		this.trackingService.delete(id);
+		const instance = this.dialog.open(ConfirmDeleteComponent);
+		instance.componentInstance['id'] = id;
+		// this.trackingService.delete(id);
 	}
 
 	public addNewTracking(jiraId: string = '') {

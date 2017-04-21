@@ -40,7 +40,6 @@
       </div>
 
       <div class="tracking__actions">
-        <a><i class="material-icons tracking__actions_icon">star</i></a>
         <a [hidden]="tracking.jiraId === ''" href="https://jira.impact.dk/browse/{{tracking.jiraId}}" target="_blank"><i class="material-icons tracking__actions_icon">launch</i></a>
         <a (click)="deleteTracking(tracking._id)"><i class="material-icons tracking__actions_icon">delete</i></a>
       </div>
