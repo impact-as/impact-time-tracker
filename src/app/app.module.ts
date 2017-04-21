@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 
 import { DatabaseService } from './services/database.service';
 import { LoginService } from './services/login.service';
+import { TempoService } from './services/tempo.service';
 import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
@@ -49,7 +50,7 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
 		BrowserAnimationsModule,
 		MaterialModule.forRoot()
 	],
-	providers: [TrackingService, StorageService, JiraCaseService, DatabaseService, LoginService],
+	providers: [TrackingService, StorageService, JiraCaseService, DatabaseService, LoginService, TempoService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { MdDialog } from '@angular/material';
 
 import { TrackingInterface } from '../models/tracking.interface';
 import { TrackingService } from '../services/tracking.service';
+import { TempoService } from '../services/tempo.service';
 import { ChangeTimeComponent } from '../change-time/change-time.component';
 import { ChangeJiraIdComponent } from '../change-jira-id/change-jira-id.component';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
@@ -24,7 +25,7 @@ export class TrackerComponent implements OnInit {
 	public editCommentId: string = '';
 	public editCommentVal: string = '';
 
-	constructor(public trackingService: TrackingService, public dialog: MdDialog) {
+	constructor(public trackingService: TrackingService, public dialog: MdDialog, private tempoService: TempoService) {
 
 		this.currentDay = new Date();
 		this.selectedDay = new Date();
@@ -32,6 +33,9 @@ export class TrackerComponent implements OnInit {
 
 		this.addDays();
 
+		setTimeout( () => {
+			this.tempoService.getWorklogs();
+		}, 4000);
 
 		// update dayhours
 		setTimeout( () => {

@@ -9,24 +9,27 @@ import { JiraCaseInterface } from '../models/jira-case.interface';
 @Injectable()
 export class JiraCaseService {
 
+	public jiraApiHost:string = 'https://jira.impact.dk/rest/api/2';
+
 	public favorites: JiraCaseInterface[] = [];
 	public assignedToMe: JiraCaseInterface[] = [];
 
 	private searchItems: JiraCaseInterface[] = [];
 
-	constructor(private http: Http, 
-				private storageService: StorageService, 
-				private loginService:LoginService) {
+	constructor(private http: Http,
+				private storageService: StorageService,
+				private loginService: LoginService) {
 
 
 	}
 
 	public getAssigneeCases(user:string) {
 
-		this.http.get(`https://jira.impact.dk/rest/api/2/search?jql=assignee=${user}%20AND%20status%20%3D%20Open`).subscribe( (res) => {
+		this.http.get(`${this.jiraApiHost}/search?jql=assignee=${user}%20AND%20status%20%3D%20Open`).subscribe( (res) => {
 			if(res.status === 200) {
 				const body = res.json();
 				const cases: JiraCaseInterface[] = [];
+				this.assignedToMe.splice(0, this.assignedToMe.length);
 				body.issues.forEach( item => {
 					const jiracase: JiraCaseInterface = {} as JiraCaseInterface;
 					jiracase.jiraId = item.key;
@@ -47,10 +50,10 @@ export class JiraCaseService {
 
 		return new Promise((resolve, reject) => {
 
-			if(term !== '') {
+			if (term !== '') {
 
-				this.http.get(`https://jira.impact.dk/rest/api/2/search?jql=summary~"${term}"`).subscribe( (res) => {
-					if(res.status === 200) {
+				this.http.get(`${this.jiraApiHost}/search?jql=summary~"${term}"`).subscribe( (res) => {
+					if (res.status === 200) {
 						const body = res.json();
 						const cases: JiraCaseInterface[] = [];
 						body.issues.forEach( item => {
