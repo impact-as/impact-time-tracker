@@ -1,0 +1,20 @@
+
+.jira-header {
+	padding-bottom: 20px;
+}
+
+.jira-item {
+	font-size: 12px;
+	cursor:pointer;
+	padding: 5px;
+	color:#999;
+
+	b {
+		font-size: 15px;
+		color:#666;
+	}
+
+	&:hover {
+		background-color: #e2e2e2;
+	}
+}

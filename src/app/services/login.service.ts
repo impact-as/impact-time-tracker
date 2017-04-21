@@ -4,12 +4,13 @@ import { MdDialog } from '@angular/material';
 @Injectable()
 export class LoginService {
 
-  constructor(public dialog: MdDialog) { 
+	constructor(public dialog: MdDialog) {
 
-  }
+	}
 
-  public openLoginPrompt() {
-     window.open('https://jitra.impact.dk', '_blank');
-  }
+	public openLoginPrompt() {
+		this.dialog.closeAll();
+		window.open('https://jira.impact.dk/login.jsp', '_blank');
+	}
 
 }

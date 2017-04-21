@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="date-navigation">
+  <div class="days">
+    <a *ngFor="let day of availableDays" (click)="gotoDate(day)" class="day" [class.day_selected]="day.getDate() == selectedDay.getDate()"[class.day_current]="day.getDate() == currentDay.getDate()">
+      {{day | date:'EEE'}}
+      <span class="day__date">{{day | date:'dd/MM'}}</span>
+      </a>
+  </div>
+</div>
+
+<div class="day-summary">
+  Der er i alt reigstreret {{totalDayHours | formatTime}} timer for dagen
+</div>
+
+<div class="trackings">
+  <div class="tracking" *ngFor="let tracking of trackings | filterDate:selectedDay">
+
+    <a class="state-button" 
+      [class.state-button__playing]="tracking._id === trackingService.currentTracking._id" 
+      (click)="toggleTracking(tracking._id, tracking._id !== trackingService.currentTracking._id)">
+        <span [hidden]="tracking._id !== trackingService.currentTracking._id"><i class="material-icons">pause_circle_filled</i></span>
+        <span [hidden]="tracking._id === trackingService.currentTracking._id"><i class="material-icons">play_circle_filled</i></span>
+    </a>
+
+    <div class=tracking__info-container>
+
+      <div class="tracking__jira-id" [class.tracking__jira-id_not-set]="tracking.jiraId === ''" (click)="openSelectJiraIdDialog(tracking)">
+        <span [hidden]="tracking.jiraId === ''" >{{tracking.jiraId}} </span>
+        <span [hidden]="tracking.jiraId !== ''" >Ingen Jira case </span>
+        <span class="tracking__title">{{tracking.title}}</span>
+      </div>
+
+      <div class="tracking__comment">
+        <input class="tracking__comment-input" (blur)="editComment(tracking)" [class.tracking__comment-input_not-valid]="tracking.comment === ''" [(ngModel)]="tracking.comment" />
+      </div>
+
+      <div class="tracking__time" (click)="openChangeTimeDialog(tracking)" [class.blink_me]="tracking._id === trackingService.currentTracking._id">
+        {{tracking.time | formatTime}}
+      </div>
+
+      <div class="tracking__actions">
+        <a><i class="material-icons tracking__actions_icon">star</i></a>
+        <a [hidden]="tracking.jiraId === ''" href="https://jira.impact.dk/browse/{{tracking.jiraId}}" target="_blank"><i class="material-icons tracking__actions_icon">launch</i></a>
+        <a (click)="deleteTracking(tracking._id)"><i class="material-icons tracking__actions_icon">delete</i></a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="bottom-action-container">
+  <button md-raised-button color="primary" (click)="addNewTracking()">Start ny registrering</button>
+</div>

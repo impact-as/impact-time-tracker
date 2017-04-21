@@ -1,0 +1,27 @@
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.network {
+  vertical-align: middle;
+
+  &__sync {
+    font-size: 22px;
+    cursor:pointer;
+    vertical-align: middle;
+    color: #666;
+  }
+}
+
+.network-status {
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 3px;
+  background-color:orange;
+  color: white;
+
+  &_online {
+    background-color:#94C11E;
+  }
+}
