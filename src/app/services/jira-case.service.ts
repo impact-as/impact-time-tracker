@@ -6,6 +6,9 @@ import { LoginService } from './login.service';
 
 import { JiraCaseInterface } from '../models/jira-case.interface';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 @Injectable()
 export class JiraCaseService {
 
@@ -44,39 +47,43 @@ export class JiraCaseService {
 		});
 	}
 
-	public search(term) {
-		term = term.toLowerCase();
-
-
-		return new Promise((resolve, reject) => {
-
-			if (term !== '') {
-
-				this.http.get(`${this.jiraApiHost}/search?jql=summary~"${term}"`).subscribe( (res) => {
-					if (res.status === 200) {
-						const body = res.json();
-						const cases: JiraCaseInterface[] = [];
-						body.issues.forEach( item => {
-							const jiracase: JiraCaseInterface = {} as JiraCaseInterface;
-							jiracase.jiraId = item.key;
-							jiracase.title = item.fields.summary;
-							cases.push(jiracase);
-						});
-						resolve(cases);
-					}
-				}, (error) => {
-					if(error.status === 400) {
-						this.loginService.openLoginPrompt();
-					}
-					reject();
-				});
-
-			} else {
-				reject();
-			}
-
-		});
-
+	public search(term: string): Observable<any[]> {
+		return this.http.get(`${this.jiraApiHost}/search?jql=summary~"${term}"`).map(response => response.json());
 	}
+
+	// public search(term) {
+	// 	term = term.toLowerCase();
+
+
+	// 	return new Promise((resolve, reject) => {
+
+	// 		if (term !== '') {
+
+	// 			this.http.get(`${this.jiraApiHost}/search?jql=summary~"${term}"`).subscribe( (res) => {
+	// 				if (res.status === 200) {
+	// 					const body = res.json();
+	// 					const cases: JiraCaseInterface[] = [];
+	// 					body.issues.forEach( item => {
+	// 						const jiracase: JiraCaseInterface = {} as JiraCaseInterface;
+	// 						jiracase.jiraId = item.key;
+	// 						jiracase.title = item.fields.summary;
+	// 						cases.push(jiracase);
+	// 					});
+	// 					resolve(cases);
+	// 				}
+	// 			}, (error) => {
+	// 				if(error.status === 400) {
+	// 					this.loginService.openLoginPrompt();
+	// 				}
+	// 				reject();
+	// 			});
+
+	// 		} else {
+	// 			reject();
+	// 		}
+
+	// 	});
+
+	// }
 
 }
