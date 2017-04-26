@@ -5,16 +5,16 @@
 </div>
 
 <md-input-container>
-  <input mdInput placeholder="Find Jira Case" (keyup)="searchFieldChange()" [(ngModel)]="searchTerm">
+  <input mdInput placeholder="Find Jira Case"  #searchBox id="search-box"  (keyup)="search($event, searchBox.value)" />
 </md-input-container>
 
-<div [hidden]="searchTerm === ''">
+<div [hidden]="searchBox.value === ''">
       <div *ngFor="let item of searchResult" class="jira-item" (click)="clickJiraCase(item)">
         <b>{{item.jiraId}}</b> - {{item.title}}
       </div>
 </div>
 
-<div [hidden]="searchTerm !== ''">
+<div [hidden]="searchBox.value !== ''">
 
   <md-tab-group>
     <!--<md-tab label="Favoritter">

@@ -18,10 +18,13 @@ import { FilterDatePipe } from './pipes/filter-date.pipe';
 import { ChangeTimeComponent } from './change-time/change-time.component';
 import { ChangeJiraIdComponent } from './change-jira-id/change-jira-id.component';
 import { HeaderComponent } from './header/header.component';
+import { WeekgraphComponent } from './weekgraph/weekgraph.component';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
+import { TrackingItemComponent } from './tracking-item/tracking-item.component';
 
 import { DatabaseService } from './services/database.service';
 import { LoginService } from './services/login.service';
-import { WeekgraphComponent } from './weekgraph/weekgraph.component';
+import { TempoService } from './services/tempo.service';
 
 @NgModule({
 	declarations: [
@@ -32,12 +35,16 @@ import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 		ChangeTimeComponent,
 		ChangeJiraIdComponent,
 		HeaderComponent,
-		WeekgraphComponent
+		WeekgraphComponent,
+		ConfirmDeleteComponent,
+		TrackingItemComponent
 	],
 	entryComponents: [
 		ChangeTimeComponent,
 		ChangeJiraIdComponent,
-		WeekgraphComponent
+		WeekgraphComponent,
+		ConfirmDeleteComponent,
+		TrackingItemComponent
 	],
 	imports: [
 		BrowserModule,
@@ -46,7 +53,14 @@ import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 		BrowserAnimationsModule,
 		MaterialModule.forRoot()
 	],
-	providers: [TrackingService, StorageService, JiraCaseService, DatabaseService, LoginService],
+	providers: [
+		TrackingService,
+		StorageService,
+		JiraCaseService,
+		DatabaseService,
+		LoginService,
+		TempoService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

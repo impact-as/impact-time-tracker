@@ -9,6 +9,7 @@ export class LoginService {
 	}
 
 	public openLoginPrompt() {
+		this.dialog.closeAll();
 		window.open('https://jira.impact.dk/login.jsp', '_blank');
 	}
 

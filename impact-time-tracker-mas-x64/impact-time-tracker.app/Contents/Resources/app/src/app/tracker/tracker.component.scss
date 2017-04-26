@@ -2,8 +2,6 @@
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
 
-$not-valid: rgba(#d05921, 0.3);
-$playing: #94C11E;
 
 a {
   cursor: pointer;
@@ -17,122 +15,10 @@ a {
   padding: 20px;
 }
 
-.state-button {
-  display: block;
-  // background-color: #e2e2e2;
-  // text-transform: uppercase;
-  text-align: center;
-  // width: 74px;
-  // height: 74px;
-  // line-height: 74px;
-  position: absolute;
-  top:10px;
-  left:10px;
-  color:#e2e2e2;
-  // border-radius: 50%;
-  // transition: background-color 0.3s;
-
-  i {
-    font-size: 74px;
-  }
-
-  &__playing {
-    color: $playing;
-    // transition: background-color 0.3s;
-    // color: white;
-  }
-
-}
-
 .trackings {
   padding: 0px 20px;
 }
 
-.tracking {
-  margin-bottom: 1px;
-  height: 94px;
-  position: relative;
-  border-top: 1px solid #e2e2e2;
-
-  &:first-child {
-    border-top:none;
-  }
-
-  &__info-container {
-    top:15px;
-    bottom:15px;
-    left:120px;
-    right: 10px;
-    position: absolute;
-  }
-
-  &__title {
-    color:#999;
-    font-size: 11px;
-    padding-top: 5px;
-    font-weight: normal;
-  }
-
-  &__jira-id {
-    font-size: 25px;
-    font-weight: bold;
-    position: absolute;
-    bottom: 0px;
-    cursor:pointer;
-
-    &_not-set {
-      font-weight: normal;
-      color: black;
-      font-size: 20px;
-      bottom: 5px;
-    }
-  }
-
-  &__comment {
-    left:0px;
-    right: 20px;
-    top: 0px;
-    position: absolute;
-  }
-
-  &__comment-input {
-    width: calc(100% - 110px);
-    padding: 7px 10px;
-    border-radius: 4px;
-    outline: none;
-    border: 1px solid #e2e2e2;
-
-    &_not-valid {
-      border: 1px solid $not-valid;
-    }
-
-  }
-
-  &__time {
-    position: absolute;
-    right:0px;
-    top:-5px;
-    font-size: 30px;
-    font-weight: bold;
-    cursor:pointer;
-  }
-
-  &__actions {
-    position: absolute;
-    bottom:3px;
-    right: 0px;
-
-    &_icon {
-      font-size: 18px;
-    }
-
-    a {
-      color:#CCC;
-    }
-
-  }
-
-}
 
 .date-navigation {
   background-color: whitesmoke;

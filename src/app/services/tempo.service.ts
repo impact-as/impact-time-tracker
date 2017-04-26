@@ -8,8 +8,19 @@ export class TempoService {
 
 	constructor(private http: Http) { }
 
-	public getWorklogs() {
-		this.http.get(`${this.tempoApiHost}/worklogs/?dateFrom=2017-04-01&dateTo=2017-04-21&username=mst`).subscribe((res) => {
+	public getWorklogs(user:string) {
+		this.http.get(`${this.tempoApiHost}/worklogs/?dateFrom=2017-04-01&dateTo=2017-04-21&username=${user}`).subscribe((res) => {
+			if (res.status === 200) {
+				console.log(res);
+			}
+		}, (error) => {
+
+		});
+	}
+
+	public getApprovalStatus(user: string, date: Date = new Date()) {
+		const dateString = date.toISOString().substring(0, 10);
+		this.http.get(`${this.tempoApiHost}/timesheet-approval/current/?dateFrom=${dateString}&username=${user}`).subscribe((res) => {
 			if (res.status === 200) {
 				console.log(res);
 			}

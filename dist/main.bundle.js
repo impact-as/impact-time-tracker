@@ -544,8 +544,18 @@ var TempoService = (function () {
         this.http = http;
         this.tempoApiHost = 'https://jira.impact.dk/rest/tempo-timesheets/3';
     }
-    TempoService.prototype.getWorklogs = function () {
-        this.http.get(this.tempoApiHost + "/worklogs/?dateFrom=2017-04-01&dateTo=2017-04-21&username=mst").subscribe(function (res) {
+    TempoService.prototype.getWorklogs = function (user) {
+        this.http.get(this.tempoApiHost + "/worklogs/?dateFrom=2017-04-01&dateTo=2017-04-21&username=" + user).subscribe(function (res) {
+            if (res.status === 200) {
+                console.log(res);
+            }
+        }, function (error) {
+        });
+    };
+    TempoService.prototype.getApprovalStatus = function (user, date) {
+        if (date === void 0) { date = new Date(); }
+        var dateString = date.toISOString().substring(0, 10);
+        this.http.get(this.tempoApiHost + "/timesheet-approval/current/?dateFrom=" + dateString + "&username=" + user).subscribe(function (res) {
             if (res.status === 200) {
                 console.log(res);
             }
@@ -673,7 +683,10 @@ var TrackingItemComponent = (function () {
         this.dialog = dialog;
     }
     TrackingItemComponent.prototype.openSelectJiraIdDialog = function (tracking) {
-        var instance = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__change_jira_id_change_jira_id_component__["a" /* ChangeJiraIdComponent */]);
+        var instance = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__change_jira_id_change_jira_id_component__["a" /* ChangeJiraIdComponent */], {
+            height: '80%',
+            width: '80%',
+        });
         instance.componentInstance['tracking'] = tracking;
     };
     TrackingItemComponent.prototype.openChangeTimeDialog = function (tracking) {

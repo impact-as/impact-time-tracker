@@ -24,7 +24,10 @@ export class TrackingItemComponent implements OnInit {
 	}
 
 	public openSelectJiraIdDialog(tracking: TrackingInterface) {
-		const instance = this.dialog.open(ChangeJiraIdComponent);
+		const instance = this.dialog.open(ChangeJiraIdComponent, {
+			height: '80%',
+			width: '80%',
+		});
 		instance.componentInstance['tracking'] = tracking;
 	}
 

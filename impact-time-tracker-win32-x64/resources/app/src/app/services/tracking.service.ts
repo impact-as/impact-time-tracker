@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable,  } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { TrackingInterface } from '../models/tracking.interface';
 import { JiraCaseInterface } from '../models/jira-case.interface';
@@ -12,6 +14,13 @@ import { DatabaseService } from '../services/database.service';
 
 import { TrackingStatus } from '../models/tracking.status';
 
+export enum ChangeType {
+	ADDED = 0,
+	DELETED = 1,
+	UPDATED = 2
+
+}
+
 
 @Injectable()
 export class TrackingService {
@@ -20,6 +29,8 @@ export class TrackingService {
 	public currentTracking: TrackingInterface = { _id: '000' } as TrackingInterface;
 	public trackings: TrackingInterface[] = [];
 	public totalDayHours: number = 0;
+
+	public updateSubscriber: BehaviorSubject<ChangeType> = new BehaviorSubject(0);
 
 	public track: TrackInterface  = { active: false } as TrackInterface;
 
@@ -35,6 +46,8 @@ export class TrackingService {
 			tracks.forEach( (item) => {
 				this.trackings.push(item);
 			});
+
+			this.updateSubscriber.next(ChangeType.UPDATED);
 		});
 	}
 
@@ -50,6 +63,7 @@ export class TrackingService {
 
 		this.trackings.push(tracking);
 		this.databaseService.insert(tracking);
+		this.updateSubscriber.next(ChangeType.ADDED);
 		this.start(tracking._id);
 
 		return tracking;
@@ -64,66 +78,42 @@ export class TrackingService {
 			if (id === tracking._id) {
 				this.trackings.splice(index, 1);
 				this.databaseService.remove(tracking._id);
-			}
-		});
-
-	}
-
-	public updateJiraCase(tracking: TrackingInterface, jiraCase: JiraCaseInterface) {
-		this.trackings.forEach((tr) => {
-			if (tracking._id === tr._id) {
-				tracking.jiraId = jiraCase.jiraId;
-				tracking.title = jiraCase.title;
-				this.saveTracking(tracking);
+				this.updateSubscriber.next(ChangeType.DELETED);
 			}
 		});
 	}
 
-
-	public updateTime(tracking: TrackingInterface, seconds: number) {
-		this.trackings.forEach((tr) => {
-			if (tracking._id === tr._id) {
-				tracking.time = seconds;
-				this.saveTracking(tracking);
-			}
-		});
+	public update(tracking: TrackingInterface) {
+		this.saveTracking(tracking);
+		this.updateSubscriber.next(ChangeType.UPDATED);
 	}
 
 	public getHoursPrWeek() {
 		const curr = new Date;
-		const firstday = new Date(curr.setDate(curr.getDate() - curr.getDay()+1));
-		const lastday = new Date(curr.setDate(curr.getDate() - curr.getDay()+7));
+		const firstday = new Date(curr.setDate(curr.getDate() - curr.getDay() + 1));
+		const lastday = new Date(curr.setDate(curr.getDate() - curr.getDay() + 7));
 		const firstdayString = new DateHelper().dateToDateString(firstday);
 		const lastdayString = new DateHelper().dateToDateString(lastday);
 
-		const trackings = this.trackings.filter( (item:TrackingInterface) => {
+		const trackings = this.trackings.filter( (item: TrackingInterface) => {
 			return item.date >= firstdayString && item.date <= lastdayString;
 		});
-		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
 
+		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
 		return sum;
 	}
 
-	public getHoursPrDay(day:Date) {
+	public getHoursPrDay(day: Date) {
 		const dayString = new DateHelper().dateToDateString(day);
-		let trackings = this.trackings.filter( (item:TrackingInterface) => {
+		const trackings = this.trackings.filter( (item: TrackingInterface) => {
 			return item.date === dayString;
 		});
 		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
 		return sum;
 	}
 
-	private saveTracking(tracking:TrackingInterface) {
+	private saveTracking(tracking: TrackingInterface) {
 		this.databaseService.update(tracking);
-	}
-
-	public updateComment(id: string, comment: string) {
-		this.trackings.forEach((tracking) => {
-			if (id === tracking._id) {
-				tracking.comment = comment;
-				this.saveTracking(tracking);
-			}
-		});
 	}
 
 	private timer = null;
@@ -156,6 +146,7 @@ export class TrackingService {
 
 		this.currentTracking.time = Math.floor(this.track.total);
 		this.saveTracking(this.currentTracking);
+		this.updateSubscriber.next(ChangeType.UPDATED);
 	}
 
 }
