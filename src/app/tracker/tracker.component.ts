@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
+// import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+
 import { TrackingInterface } from '../models/tracking.interface';
 import { TrackingService } from '../services/tracking.service';
 
@@ -18,9 +22,6 @@ export class TrackerComponent implements OnInit {
 	public trackings: TrackingInterface[];
 	public totalDayHours: number = 0;
 
-	public editCommentId: string = '';
-	public editCommentVal: string = '';
-
 	constructor(public trackingService: TrackingService, public dialog: MdDialog) {
 
 		this.currentDay = new Date();
@@ -30,13 +31,7 @@ export class TrackerComponent implements OnInit {
 
 		this.addDays();
 
-		// update dayhours - FIX this at some point
-		setTimeout( () => {
-			this.updateDayHours();
-		}, 1000);
-		setInterval( () => {
-			this.updateDayHours();
-		}, 60 * 1000);
+		this.trackingService.updateSubscriber.subscribe(change => this.updateDayHours());
 
 	}
 
@@ -48,7 +43,7 @@ export class TrackerComponent implements OnInit {
 		}
 	}
 
-	public gotoDate(date:Date = new Date()) {
+	public gotoDate(date: Date = new Date()) {
 		const myDate = date;
 		this.selectedDay = myDate;
 		this.updateDayHours();

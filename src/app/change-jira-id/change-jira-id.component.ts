@@ -42,7 +42,9 @@ export class ChangeJiraIdComponent implements OnInit {
 				}
 
 	clickJiraCase(jiraCase: JiraCaseInterface) {
-		this.trackingService.updateJiraCase(this.tracking, jiraCase);
+		this.tracking.jiraId = jiraCase.jiraId;
+		this.tracking.title = jiraCase.title;
+		this.trackingService.update(this.tracking);
 		this.dialog.closeAll();
 	}
 	public search(evn, term: string): void {

@@ -32,13 +32,10 @@ export class TrackingItemComponent implements OnInit {
 		this.trackingService.pause(tracking._id);
 		const instance = this.dialog.open(ChangeTimeComponent);
 		instance.componentInstance['tracking'] = tracking;
-		// instance.afterClosed().subscribe( () => {
-		// 	this.updateDayHours();
-		// });
 	}
 
 	public editComment(tracking: TrackingInterface) {
-		this.trackingService.updateComment(tracking._id, tracking.comment);
+		this.trackingService.update(tracking);
 	}
 
 	public toggleTracking(id: string, start: boolean) {
