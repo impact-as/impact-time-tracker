@@ -1,0 +1,110 @@
+
+$not-valid: rgba(#d05921, 0.3);
+$playing: #94C11E;
+
+:host {
+
+  margin-bottom: 1px;
+  height: 94px;
+  position: relative;
+  display: block;
+  border-top: 1px solid #e2e2e2;
+
+  &:first-child {
+    border-top:none;
+  }
+}
+
+.info-container {
+	top:15px;
+	bottom:15px;
+	left:120px;
+	right: 10px;
+	position: absolute;
+}
+
+.title {
+	color:#999;
+	font-size: 11px;
+	padding-top: 5px;
+	font-weight: normal;
+}
+
+.jira-id {
+	font-size: 25px;
+	font-weight: bold;
+	position: absolute;
+	bottom: 0px;
+	cursor:pointer;
+
+	&_not-set {
+		font-weight: normal;
+		color: black;
+		font-size: 20px;
+		bottom: 5px;
+	}
+}
+
+.comment {
+	left:0px;
+	right: 20px;
+	top: 0px;
+	position: absolute;
+}
+
+.comment-input {
+	width: calc(100% - 110px);
+	padding: 7px 10px;
+	border-radius: 4px;
+	outline: none;
+	border: 1px solid #e2e2e2;
+
+	&_not-valid {
+		border: 1px solid $not-valid;
+	}
+
+}
+
+.time {
+	position: absolute;
+	right:0px;
+	top:-5px;
+	font-size: 30px;
+	font-weight: bold;
+	cursor:pointer;
+}
+
+.actions {
+	position: absolute;
+	bottom:3px;
+	right: 0px;
+
+	&_icon {
+		font-size: 18px;
+	}
+
+	a {
+		color:#CCC;
+	}
+
+}
+
+
+.state-button {
+  display: block;
+  text-align: center;
+  position: absolute;
+  top:10px;
+  left:10px;
+  color:#e2e2e2;
+  cursor:pointer;
+
+  i {
+    font-size: 74px;
+  }
+
+  &__playing {
+    color: $playing;
+  }
+
+}

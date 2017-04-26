@@ -18,12 +18,13 @@ import { FilterDatePipe } from './pipes/filter-date.pipe';
 import { ChangeTimeComponent } from './change-time/change-time.component';
 import { ChangeJiraIdComponent } from './change-jira-id/change-jira-id.component';
 import { HeaderComponent } from './header/header.component';
+import { WeekgraphComponent } from './weekgraph/weekgraph.component';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
+import { TrackingItemComponent } from './tracking-item/tracking-item.component';
 
 import { DatabaseService } from './services/database.service';
 import { LoginService } from './services/login.service';
 import { TempoService } from './services/tempo.service';
-import { WeekgraphComponent } from './weekgraph/weekgraph.component';
-import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 @NgModule({
 	declarations: [
@@ -35,13 +36,15 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
 		ChangeJiraIdComponent,
 		HeaderComponent,
 		WeekgraphComponent,
-		ConfirmDeleteComponent
+		ConfirmDeleteComponent,
+		TrackingItemComponent
 	],
 	entryComponents: [
 		ChangeTimeComponent,
 		ChangeJiraIdComponent,
 		WeekgraphComponent,
-		ConfirmDeleteComponent
+		ConfirmDeleteComponent,
+		TrackingItemComponent
 	],
 	imports: [
 		BrowserModule,
@@ -50,7 +53,14 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
 		BrowserAnimationsModule,
 		MaterialModule.forRoot()
 	],
-	providers: [TrackingService, StorageService, JiraCaseService, DatabaseService, LoginService, TempoService],
+	providers: [
+		TrackingService,
+		StorageService,
+		JiraCaseService,
+		DatabaseService,
+		LoginService,
+		TempoService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

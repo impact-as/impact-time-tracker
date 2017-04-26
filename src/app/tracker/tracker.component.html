@@ -14,7 +14,11 @@
 </div>
 
 <div class="trackings">
-  <div class="tracking" *ngFor="let tracking of trackings | filterDate:selectedDay">
+
+  <app-tracking-item *ngFor="let tracking of trackings | filterDate:selectedDay" [tracking]="tracking"></app-tracking-item>
+
+
+  <!--<div class="tracking" *ngFor="let tracking of trackings | filterDate:selectedDay">
 
     <a class="state-button" 
       [class.state-button__playing]="tracking._id === trackingService.currentTracking._id" 
@@ -46,7 +50,7 @@
 
     </div>
 
-  </div>
+  </div>-->
 
 </div>
 

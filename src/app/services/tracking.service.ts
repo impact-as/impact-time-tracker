@@ -113,7 +113,7 @@ export class TrackingService {
 		return sum;
 	}
 
-	private saveTracking(tracking:TrackingInterface) {
+	private saveTracking(tracking: TrackingInterface) {
 		this.databaseService.update(tracking);
 	}
 

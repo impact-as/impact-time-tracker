@@ -45,13 +45,6 @@ export class ChangeJiraIdComponent implements OnInit {
 		this.trackingService.updateJiraCase(this.tracking, jiraCase);
 		this.dialog.closeAll();
 	}
-
-	// searchFieldChange() {
-	// 	this.jiraCaseService.search(this.searchTerm).then( (items:JiraCaseInterface[])=> {
-	// 		this.searchResult = items;
-	// 	});
-	// }
-
 	public search(evn, term: string): void {
 		this.searchTerms.next(term);
 	}
