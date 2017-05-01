@@ -34,7 +34,10 @@ export class HeaderComponent implements OnInit {
 	}
 
 	public openWeekGraph() {
-		const instance = this.dialog.open(WeekgraphComponent);
+		const instance = this.dialog.open(WeekgraphComponent, {
+			height: '80%',
+			width: '80%',
+		});
 	}
 
 	public openJiraFilterAdmin() {
