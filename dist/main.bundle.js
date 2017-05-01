@@ -1,301 +1,17 @@
 webpackJsonp([1,4],{
 
-/***/ 108:
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 108;
-
-
-/***/ }),
-
-/***/ 109:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(126);
-
-
-
-
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
-}
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ 116:
+/***/ 13:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var AppComponent = (function () {
-    function AppComponent() {
-        this.isDarkTheme = false;
-    }
-    return AppComponent;
-}());
-AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
-        selector: 'app-root',
-        template: __webpack_require__(202),
-        styles: [__webpack_require__(188)]
-    })
-], AppComponent);
-
-//# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 117:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_hammerjs__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_hammerjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__tracker_tracker_component__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_tracking_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_storage_service__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_jira_case_service__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pipes_format_time_pipe__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pipes_filter_date_pipe__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__change_time_change_time_component__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__change_jira_id_change_jira_id_component__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__header_header_component__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__weekgraph_weekgraph_component__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__confirm_delete_confirm_delete_component__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__tracking_item_tracking_item_component__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_database_service__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_login_service__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_tempo_service__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__jira_filter_admin_jira_filter_admin_component__ = __webpack_require__(75);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var AppModule = (function () {
-    function AppModule() {
-    }
-    return AppModule;
-}());
-AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__tracker_tracker_component__["a" /* TrackerComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__pipes_format_time_pipe__["a" /* FormatTimePipe */],
-            __WEBPACK_IMPORTED_MODULE_13__pipes_filter_date_pipe__["a" /* FilterDatePipe */],
-            __WEBPACK_IMPORTED_MODULE_14__change_time_change_time_component__["a" /* ChangeTimeComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__change_jira_id_change_jira_id_component__["a" /* ChangeJiraIdComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__weekgraph_weekgraph_component__["a" /* WeekgraphComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__confirm_delete_confirm_delete_component__["a" /* ConfirmDeleteComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__tracking_item_tracking_item_component__["a" /* TrackingItemComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__jira_filter_admin_jira_filter_admin_component__["a" /* JiraFilterAdminComponent */]
-        ],
-        entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_14__change_time_change_time_component__["a" /* ChangeTimeComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__change_jira_id_change_jira_id_component__["a" /* ChangeJiraIdComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__weekgraph_weekgraph_component__["a" /* WeekgraphComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__confirm_delete_confirm_delete_component__["a" /* ConfirmDeleteComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__tracking_item_tracking_item_component__["a" /* TrackingItemComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__jira_filter_admin_jira_filter_admin_component__["a" /* JiraFilterAdminComponent */]
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MaterialModule */].forRoot()
-        ],
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_9__services_tracking_service__["a" /* TrackingService */],
-            __WEBPACK_IMPORTED_MODULE_10__services_storage_service__["a" /* StorageService */],
-            __WEBPACK_IMPORTED_MODULE_11__services_jira_case_service__["a" /* JiraCaseService */],
-            __WEBPACK_IMPORTED_MODULE_20__services_database_service__["a" /* DatabaseService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_login_service__["a" /* LoginService */],
-            __WEBPACK_IMPORTED_MODULE_22__services_tempo_service__["a" /* TempoService */]
-        ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
-    })
-], AppModule);
-
-//# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ 118:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weekgraph_weekgraph_component__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__jira_filter_admin_jira_filter_admin_component__ = __webpack_require__(75);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var HeaderComponent = (function () {
-    function HeaderComponent(trackingService, dialog) {
-        this.trackingService = trackingService;
-        this.dialog = dialog;
-        this.online = false;
-    }
-    HeaderComponent.prototype.onOffline = function () {
-        this.online = navigator.onLine;
-    };
-    HeaderComponent.prototype.onLine = function () {
-        this.online = navigator.onLine;
-    };
-    HeaderComponent.prototype.openWeekGraph = function () {
-        var instance = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__weekgraph_weekgraph_component__["a" /* WeekgraphComponent */]);
-    };
-    HeaderComponent.prototype.openJiraFilterAdmin = function () {
-        var instance = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__jira_filter_admin_jira_filter_admin_component__["a" /* JiraFilterAdminComponent */], {
-            height: '80%',
-            width: '80%',
-        });
-    };
-    HeaderComponent.prototype.ngOnInit = function () {
-        this.online = navigator.onLine;
-    };
-    return HeaderComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* HostListener */])("window:offline", []),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], HeaderComponent.prototype, "onOffline", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* HostListener */])("window:online", []),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], HeaderComponent.prototype, "onLine", null);
-HeaderComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
-        selector: 'app-header',
-        template: __webpack_require__(206),
-        styles: [__webpack_require__(184)]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _b || Object])
-], HeaderComponent);
-
-var _a, _b;
-//# sourceMappingURL=header.component.js.map
-
-/***/ }),
-
-/***/ 119:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GUID; });
-var GUID = (function () {
-    function GUID(str) {
-        this.str = str || GUID.getNewGUIDString();
-    }
-    GUID.prototype.toString = function () {
-        return this.str;
-    };
-    // tslint:disable-next-line:member-ordering
-    GUID.getNewGUIDString = function () {
-        var d = new Date().getTime();
-        if (window.performance && typeof window.performance.now === "function") {
-            d += performance.now(); //use high-precision timer if available
-        }
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = (d + Math.random() * 16) % 16 | 0;
-            d = Math.floor(d / 16);
-            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-        });
-    };
-    return GUID;
-}());
-
-//# sourceMappingURL=GUID.js.map
-
-/***/ }),
-
-/***/ 12:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__(379);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_GUID__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_date_helper__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_storage_service__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_database_service__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_tracking_status__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_GUID__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_date_helper__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_storage_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_database_service__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_tracking_status__ = __webpack_require__(240);
 /* unused harmony export ChangeType */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackingService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -430,7 +146,7 @@ var TrackingService = (function () {
     return TrackingService;
 }());
 TrackingService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_storage_service__["a" /* StorageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_storage_service__["a" /* StorageService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__services_database_service__["a" /* DatabaseService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_database_service__["a" /* DatabaseService */]) === "function" && _b || Object])
 ], TrackingService);
 
@@ -439,7 +155,301 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 120:
+/***/ 228:
+/***/ (function(module, exports) {
+
+function webpackEmptyContext(req) {
+	throw new Error("Cannot find module '" + req + "'.");
+}
+webpackEmptyContext.keys = function() { return []; };
+webpackEmptyContext.resolve = webpackEmptyContext;
+module.exports = webpackEmptyContext;
+webpackEmptyContext.id = 228;
+
+
+/***/ }),
+
+/***/ 229:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(245);
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
+}
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 236:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var AppComponent = (function () {
+    function AppComponent() {
+        this.isDarkTheme = false;
+    }
+    return AppComponent;
+}());
+AppComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-root',
+        template: __webpack_require__(370),
+        styles: [__webpack_require__(353)]
+    })
+], AppComponent);
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 237:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_charts__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_chart_js__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_chart_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_hammerjs__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__tracker_tracker_component__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_tracking_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_storage_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_jira_case_service__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pipes_format_time_pipe__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pipes_filter_date_pipe__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__change_time_change_time_component__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__change_jira_id_change_jira_id_component__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__header_header_component__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__weekgraph_weekgraph_component__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__confirm_delete_confirm_delete_component__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__tracking_item_tracking_item_component__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_database_service__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_login_service__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_tempo_service__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__jira_filter_admin_jira_filter_admin_component__ = __webpack_require__(76);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__tracker_tracker_component__["a" /* TrackerComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__pipes_format_time_pipe__["a" /* FormatTimePipe */],
+            __WEBPACK_IMPORTED_MODULE_15__pipes_filter_date_pipe__["a" /* FilterDatePipe */],
+            __WEBPACK_IMPORTED_MODULE_16__change_time_change_time_component__["a" /* ChangeTimeComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__change_jira_id_change_jira_id_component__["a" /* ChangeJiraIdComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__weekgraph_weekgraph_component__["a" /* WeekgraphComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__confirm_delete_confirm_delete_component__["a" /* ConfirmDeleteComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__tracking_item_tracking_item_component__["a" /* TrackingItemComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__jira_filter_admin_jira_filter_admin_component__["a" /* JiraFilterAdminComponent */]
+        ],
+        entryComponents: [
+            __WEBPACK_IMPORTED_MODULE_16__change_time_change_time_component__["a" /* ChangeTimeComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__change_jira_id_change_jira_id_component__["a" /* ChangeJiraIdComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__weekgraph_weekgraph_component__["a" /* WeekgraphComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__confirm_delete_confirm_delete_component__["a" /* ConfirmDeleteComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__tracking_item_tracking_item_component__["a" /* TrackingItemComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__jira_filter_admin_jira_filter_admin_component__["a" /* JiraFilterAdminComponent */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+            __WEBPACK_IMPORTED_MODULE_4_ng2_charts__["ChartsModule"],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["a" /* MaterialModule */].forRoot()
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_11__services_tracking_service__["a" /* TrackingService */],
+            __WEBPACK_IMPORTED_MODULE_12__services_storage_service__["a" /* StorageService */],
+            __WEBPACK_IMPORTED_MODULE_13__services_jira_case_service__["a" /* JiraCaseService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_database_service__["a" /* DatabaseService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_login_service__["a" /* LoginService */],
+            __WEBPACK_IMPORTED_MODULE_24__services_tempo_service__["a" /* TempoService */]
+        ],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
+    })
+], AppModule);
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 238:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weekgraph_weekgraph_component__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__jira_filter_admin_jira_filter_admin_component__ = __webpack_require__(76);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var HeaderComponent = (function () {
+    function HeaderComponent(trackingService, dialog) {
+        this.trackingService = trackingService;
+        this.dialog = dialog;
+        this.online = false;
+    }
+    HeaderComponent.prototype.onOffline = function () {
+        this.online = navigator.onLine;
+    };
+    HeaderComponent.prototype.onLine = function () {
+        this.online = navigator.onLine;
+    };
+    HeaderComponent.prototype.openWeekGraph = function () {
+        var instance = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__weekgraph_weekgraph_component__["a" /* WeekgraphComponent */], {
+            height: '80%',
+            width: '80%',
+        });
+    };
+    HeaderComponent.prototype.openJiraFilterAdmin = function () {
+        var instance = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__jira_filter_admin_jira_filter_admin_component__["a" /* JiraFilterAdminComponent */], {
+            height: '80%',
+            width: '80%',
+        });
+    };
+    HeaderComponent.prototype.ngOnInit = function () {
+        this.online = navigator.onLine;
+    };
+    return HeaderComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])("window:offline", []),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], HeaderComponent.prototype, "onOffline", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])("window:online", []),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], HeaderComponent.prototype, "onLine", null);
+HeaderComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-header',
+        template: __webpack_require__(374),
+        styles: [__webpack_require__(349)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _b || Object])
+], HeaderComponent);
+
+var _a, _b;
+//# sourceMappingURL=header.component.js.map
+
+/***/ }),
+
+/***/ 239:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GUID; });
+var GUID = (function () {
+    function GUID(str) {
+        this.str = str || GUID.getNewGUIDString();
+    }
+    GUID.prototype.toString = function () {
+        return this.str;
+    };
+    // tslint:disable-next-line:member-ordering
+    GUID.getNewGUIDString = function () {
+        var d = new Date().getTime();
+        if (window.performance && typeof window.performance.now === "function") {
+            d += performance.now(); //use high-precision timer if available
+        }
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = (d + Math.random() * 16) % 16 | 0;
+            d = Math.floor(d / 16);
+            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+    };
+    return GUID;
+}());
+
+//# sourceMappingURL=GUID.js.map
+
+/***/ }),
+
+/***/ 240:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -455,12 +465,12 @@ var TrackingStatus;
 
 /***/ }),
 
-/***/ 121:
+/***/ 241:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_date_helper__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_date_helper__ = __webpack_require__(75);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterDatePipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -480,65 +490,23 @@ var FilterDatePipe = (function () {
     return FilterDatePipe;
 }());
 FilterDatePipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["W" /* Pipe */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
         name: 'filterDate',
         pure: false
     }),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])()
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
 ], FilterDatePipe);
 
 //# sourceMappingURL=filter-date.pipe.js.map
 
 /***/ }),
 
-/***/ 122:
+/***/ 242:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormatTimePipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var FormatTimePipe = (function () {
-    function FormatTimePipe() {
-    }
-    FormatTimePipe.prototype.transform = function (value, args) {
-        var secs = Math.round(value);
-        var hours = Math.floor(secs / (60 * 60));
-        var minutes = Math.floor((secs % (60 * 60)) / 60);
-        var hours_formatted = hours.toString();
-        var minutes_formatted = minutes.toString();
-        if (hours < 10) {
-            hours_formatted = '0' + hours_formatted;
-        }
-        if (minutes < 10) {
-            minutes_formatted = '0' + minutes_formatted;
-        }
-        return hours_formatted + ":" + minutes_formatted;
-    };
-    return FormatTimePipe;
-}());
-FormatTimePipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["W" /* Pipe */])({
-        name: 'formatTime'
-    })
-], FormatTimePipe);
-
-//# sourceMappingURL=format-time.pipe.js.map
-
-/***/ }),
-
-/***/ 123:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(30);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TempoService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -577,7 +545,7 @@ var TempoService = (function () {
     return TempoService;
 }());
 TempoService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], TempoService);
 
@@ -586,15 +554,15 @@ var _a;
 
 /***/ }),
 
-/***/ 124:
+/***/ 243:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__ = __webpack_require__(13);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackerComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -647,10 +615,10 @@ var TrackerComponent = (function () {
     return TrackerComponent;
 }());
 TrackerComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-tracker',
-        template: __webpack_require__(208),
-        styles: [__webpack_require__(185)],
+        template: __webpack_require__(376),
+        styles: [__webpack_require__(350)],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__["a" /* TrackingService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _b || Object])
 ], TrackerComponent);
@@ -660,18 +628,18 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 125:
+/***/ 244:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__change_time_change_time_component__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__change_jira_id_change_jira_id_component__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__confirm_delete_confirm_delete_component__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__change_time_change_time_component__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__change_jira_id_change_jira_id_component__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__confirm_delete_confirm_delete_component__ = __webpack_require__(74);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackingItemComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -726,14 +694,14 @@ var TrackingItemComponent = (function () {
     return TrackingItemComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__["ITracking"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__["ITracking"]) === "function" && _a || Object)
 ], TrackingItemComponent.prototype, "tracking", void 0);
 TrackingItemComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-tracking-item',
-        template: __webpack_require__(209),
-        styles: [__webpack_require__(186)]
+        template: __webpack_require__(377),
+        styles: [__webpack_require__(351)]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__["a" /* TrackingService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _c || Object])
 ], TrackingItemComponent);
@@ -743,7 +711,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 126:
+/***/ 245:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -760,10 +728,10 @@ var environment = {
 
 /***/ }),
 
-/***/ 183:
+/***/ 348:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -778,10 +746,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 184:
+/***/ 349:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -796,10 +764,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 185:
+/***/ 350:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -814,10 +782,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 186:
+/***/ 351:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -832,10 +800,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 187:
+/***/ 352:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -850,10 +818,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 188:
+/***/ 353:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -868,10 +836,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 189:
+/***/ 354:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -886,10 +854,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 190:
+/***/ 355:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -904,10 +872,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 191:
+/***/ 356:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)();
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -922,97 +890,351 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 202:
+/***/ 360:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": 96,
+	"./af.js": 96,
+	"./ar": 103,
+	"./ar-dz": 97,
+	"./ar-dz.js": 97,
+	"./ar-kw": 98,
+	"./ar-kw.js": 98,
+	"./ar-ly": 99,
+	"./ar-ly.js": 99,
+	"./ar-ma": 100,
+	"./ar-ma.js": 100,
+	"./ar-sa": 101,
+	"./ar-sa.js": 101,
+	"./ar-tn": 102,
+	"./ar-tn.js": 102,
+	"./ar.js": 103,
+	"./az": 104,
+	"./az.js": 104,
+	"./be": 105,
+	"./be.js": 105,
+	"./bg": 106,
+	"./bg.js": 106,
+	"./bn": 107,
+	"./bn.js": 107,
+	"./bo": 108,
+	"./bo.js": 108,
+	"./br": 109,
+	"./br.js": 109,
+	"./bs": 110,
+	"./bs.js": 110,
+	"./ca": 111,
+	"./ca.js": 111,
+	"./cs": 112,
+	"./cs.js": 112,
+	"./cv": 113,
+	"./cv.js": 113,
+	"./cy": 114,
+	"./cy.js": 114,
+	"./da": 115,
+	"./da.js": 115,
+	"./de": 118,
+	"./de-at": 116,
+	"./de-at.js": 116,
+	"./de-ch": 117,
+	"./de-ch.js": 117,
+	"./de.js": 118,
+	"./dv": 119,
+	"./dv.js": 119,
+	"./el": 120,
+	"./el.js": 120,
+	"./en-au": 121,
+	"./en-au.js": 121,
+	"./en-ca": 122,
+	"./en-ca.js": 122,
+	"./en-gb": 123,
+	"./en-gb.js": 123,
+	"./en-ie": 124,
+	"./en-ie.js": 124,
+	"./en-nz": 125,
+	"./en-nz.js": 125,
+	"./eo": 126,
+	"./eo.js": 126,
+	"./es": 128,
+	"./es-do": 127,
+	"./es-do.js": 127,
+	"./es.js": 128,
+	"./et": 129,
+	"./et.js": 129,
+	"./eu": 130,
+	"./eu.js": 130,
+	"./fa": 131,
+	"./fa.js": 131,
+	"./fi": 132,
+	"./fi.js": 132,
+	"./fo": 133,
+	"./fo.js": 133,
+	"./fr": 136,
+	"./fr-ca": 134,
+	"./fr-ca.js": 134,
+	"./fr-ch": 135,
+	"./fr-ch.js": 135,
+	"./fr.js": 136,
+	"./fy": 137,
+	"./fy.js": 137,
+	"./gd": 138,
+	"./gd.js": 138,
+	"./gl": 139,
+	"./gl.js": 139,
+	"./gom-latn": 140,
+	"./gom-latn.js": 140,
+	"./he": 141,
+	"./he.js": 141,
+	"./hi": 142,
+	"./hi.js": 142,
+	"./hr": 143,
+	"./hr.js": 143,
+	"./hu": 144,
+	"./hu.js": 144,
+	"./hy-am": 145,
+	"./hy-am.js": 145,
+	"./id": 146,
+	"./id.js": 146,
+	"./is": 147,
+	"./is.js": 147,
+	"./it": 148,
+	"./it.js": 148,
+	"./ja": 149,
+	"./ja.js": 149,
+	"./jv": 150,
+	"./jv.js": 150,
+	"./ka": 151,
+	"./ka.js": 151,
+	"./kk": 152,
+	"./kk.js": 152,
+	"./km": 153,
+	"./km.js": 153,
+	"./kn": 154,
+	"./kn.js": 154,
+	"./ko": 155,
+	"./ko.js": 155,
+	"./ky": 156,
+	"./ky.js": 156,
+	"./lb": 157,
+	"./lb.js": 157,
+	"./lo": 158,
+	"./lo.js": 158,
+	"./lt": 159,
+	"./lt.js": 159,
+	"./lv": 160,
+	"./lv.js": 160,
+	"./me": 161,
+	"./me.js": 161,
+	"./mi": 162,
+	"./mi.js": 162,
+	"./mk": 163,
+	"./mk.js": 163,
+	"./ml": 164,
+	"./ml.js": 164,
+	"./mr": 165,
+	"./mr.js": 165,
+	"./ms": 167,
+	"./ms-my": 166,
+	"./ms-my.js": 166,
+	"./ms.js": 167,
+	"./my": 168,
+	"./my.js": 168,
+	"./nb": 169,
+	"./nb.js": 169,
+	"./ne": 170,
+	"./ne.js": 170,
+	"./nl": 172,
+	"./nl-be": 171,
+	"./nl-be.js": 171,
+	"./nl.js": 172,
+	"./nn": 173,
+	"./nn.js": 173,
+	"./pa-in": 174,
+	"./pa-in.js": 174,
+	"./pl": 175,
+	"./pl.js": 175,
+	"./pt": 177,
+	"./pt-br": 176,
+	"./pt-br.js": 176,
+	"./pt.js": 177,
+	"./ro": 178,
+	"./ro.js": 178,
+	"./ru": 179,
+	"./ru.js": 179,
+	"./sd": 180,
+	"./sd.js": 180,
+	"./se": 181,
+	"./se.js": 181,
+	"./si": 182,
+	"./si.js": 182,
+	"./sk": 183,
+	"./sk.js": 183,
+	"./sl": 184,
+	"./sl.js": 184,
+	"./sq": 185,
+	"./sq.js": 185,
+	"./sr": 187,
+	"./sr-cyrl": 186,
+	"./sr-cyrl.js": 186,
+	"./sr.js": 187,
+	"./ss": 188,
+	"./ss.js": 188,
+	"./sv": 189,
+	"./sv.js": 189,
+	"./sw": 190,
+	"./sw.js": 190,
+	"./ta": 191,
+	"./ta.js": 191,
+	"./te": 192,
+	"./te.js": 192,
+	"./tet": 193,
+	"./tet.js": 193,
+	"./th": 194,
+	"./th.js": 194,
+	"./tl-ph": 195,
+	"./tl-ph.js": 195,
+	"./tlh": 196,
+	"./tlh.js": 196,
+	"./tr": 197,
+	"./tr.js": 197,
+	"./tzl": 198,
+	"./tzl.js": 198,
+	"./tzm": 200,
+	"./tzm-latn": 199,
+	"./tzm-latn.js": 199,
+	"./tzm.js": 200,
+	"./uk": 201,
+	"./uk.js": 201,
+	"./ur": 202,
+	"./ur.js": 202,
+	"./uz": 204,
+	"./uz-latn": 203,
+	"./uz-latn.js": 203,
+	"./uz.js": 204,
+	"./vi": 205,
+	"./vi.js": 205,
+	"./x-pseudo": 206,
+	"./x-pseudo.js": 206,
+	"./yo": 207,
+	"./yo.js": 207,
+	"./zh-cn": 208,
+	"./zh-cn.js": 208,
+	"./zh-hk": 209,
+	"./zh-hk.js": 209,
+	"./zh-tw": 210,
+	"./zh-tw.js": 210
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 360;
+
+
+/***/ }),
+
+/***/ 370:
 /***/ (function(module, exports) {
 
 module.exports = "\n<app-tracker></app-tracker>"
 
 /***/ }),
 
-/***/ 203:
+/***/ 371:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jira-header\">\n  Valgt Jira ID:\n  <span [hidden]=\"tracking.jiraId === ''\">{{tracking.jiraId}}</span>\n  <span [hidden]=\"tracking.jiraId !== ''\">Intet valgt</span>\n</div>\n\n<md-input-container>\n  <input mdInput placeholder=\"Find Jira Case\"  #searchBox id=\"search-box\"  (keyup)=\"search($event, searchBox.value)\" />\n</md-input-container>\n\n<div [hidden]=\"searchBox.value === ''\">\n      <div *ngFor=\"let item of searchResult\" class=\"jira-item\" (click)=\"clickJiraCase(item)\">\n        <b>{{item.jiraId}}</b> - {{item.title}}\n      </div>\n</div>\n\n<div [hidden]=\"searchBox.value !== ''\">\n\n  <md-tab-group>\n    <md-tab label=\"Assignet til mig\">\n      <div *ngFor=\"let item of assignedToMe\" class=\"jira-item\" (click)=\"clickJiraCase(item)\">\n        <b>{{item.jiraId}}</b> - {{item.title}}\n      </div>\n    </md-tab>\n    <md-tab label=\"{{filter.title}}\" *ngFor=\"let filter of filters\">\n      <div *ngFor=\"let item of filter.issues\" class=\"jira-item\" (click)=\"clickJiraCase(item)\">\n        <b>{{item.jiraId}}</b> - {{item.title}}\n      </div>\n    </md-tab>\n  </md-tab-group>\n</div>"
+module.exports = "<div class=\"jira-header\">\n  Valgt Jira ID:\n  <span [hidden]=\"tracking.jiraId === ''\">{{tracking.jiraId}}</span>\n  <span [hidden]=\"tracking.jiraId !== ''\">Intet valgt</span>\n</div>\n\n<md-input-container>\n  <input mdInput placeholder=\"Find Jira Case\" #searchBox id=\"search-box\" (keyup)=\"search($event, searchBox.value)\" />\n</md-input-container>\n\n<div [hidden]=\"searchBox.value === ''\">\n      <div *ngFor=\"let item of searchResult\" class=\"jira-item\" (click)=\"clickJiraCase(item)\">\n        <b>{{item.jiraId}}</b> - {{item.title}}\n      </div>\n</div>\n\n<div [hidden]=\"searchBox.value !== ''\">\n\n  <md-tab-group>\n    <md-tab label=\"Assignet til mig\">\n      <div *ngFor=\"let item of assignedToMe\" class=\"jira-item\" (click)=\"clickJiraCase(item)\">\n        <b>{{item.jiraId}}</b> - {{item.title}}\n      </div>\n    </md-tab>\n    <md-tab label=\"{{filter.title}}\" *ngFor=\"let filter of filters\">\n      <div *ngFor=\"let item of filter.issues\" class=\"jira-item\" (click)=\"clickJiraCase(item)\">\n        <b>{{item.jiraId}}</b> - {{item.title}}\n      </div>\n    </md-tab>\n  </md-tab-group>\n  \n</div>"
 
 /***/ }),
 
-/***/ 204:
+/***/ 372:
 /***/ (function(module, exports) {
 
 module.exports = "<h3 md-dialog-title>\n  Rediger tiden\n  </h3>\n\n<form (ngSubmit)=\"saveTime()\">\n\n  <md-dialog-content>\n    <md-input-container>\n      <input mdInput type=\"number\" placeholder=\"timer\" [(ngModel)]=\"hours\" name=\"hours\" />\n    </md-input-container>\n\n    <md-input-container>\n      <input mdInput type=\"number\" placeholder=\"minutter\" [(ngModel)]=\"minutes\" name=\"minutes\" />\n    </md-input-container>\n\n  </md-dialog-content>\n\n\n  <md-dialog-actions style=\"float:right;\">\n    <button md-dialog-close md-button>Anuller</button>\n    <button md-raised-button color=\"primary\" (click)=\"saveTime()\">Opdater</button>\n  </md-dialog-actions>\n\n</form>"
 
 /***/ }),
 
-/***/ 205:
+/***/ 373:
 /***/ (function(module, exports) {
 
 module.exports = "\n\n  <md-dialog-content>\n   Er du sikker på at du vil fjerne denne tracking?\n  </md-dialog-content>\n\n\n  <md-dialog-actions style=\"float:right;\">\n    <button md-dialog-close md-button>Anuller</button>\n    <button md-raised-button color=\"primary\" (click)=\"delete()\">Slet</button>\n  </md-dialog-actions>\n"
 
 /***/ }),
 
-/***/ 206:
+/***/ 374:
 /***/ (function(module, exports) {
 
 module.exports = "\n  <md-toolbar color=\"dark\">\n\n    <span class=\"network\">\n      <i class=\"material-icons network__sync\">sync</i>\n      <span class=\"network-status network-status_online\" [hidden]=\"!online\">Online</span>\n      <span class=\"network-status\" [hidden]=\"online\">Offline</span>\n    </span>\n\n    <span class=\"app-toolbar-filler fill-remaining-space\"></span>\n\n    <a><i class=\"material-icons\" (click)=\"openWeekGraph()\">equalizer</i></a>\n    <a><i class=\"material-icons\" (click)=\"openJiraFilterAdmin()\">favorite</i></a>\n\n    <span class=\"app-toolbar-filler fill-remaining-space\"></span>\n\n    <div [hidden]=\"!trackingService.track.active\">\n      <span [hidden]=\"trackingService.currentTracking.jiraId === ''\">{{trackingService.currentTracking.jiraId}}</span>\n      <span [hidden]=\"trackingService.currentTracking.jiraId !== ''\">Ingen Jira case</span>\n      <br />\n      <span class=\"blink_me\">{{trackingService.track.total | formatTime}}</span><br />    \n    </div>\n\n  </md-toolbar>\n"
 
 /***/ }),
 
-/***/ 207:
+/***/ 375:
 /***/ (function(module, exports) {
 
 module.exports = "<h2>Dine filtre</h2>\n\n<md-list>\n  <md-list-item *ngFor=\"let filter of filters; let i=index\">\n    <a (click)=\"remove(i)\"><md-icon md-list-icon>delete</md-icon></a>\n    <div md-line>\n      <md-input-container>\n        <input mdInput placeholder=\"Filter titel\" [(ngModel)]=\"filter.title\" />\n      </md-input-container>\n      <md-input-container>\n        <input mdInput placeholder=\"Filter ID\" [(ngModel)]=\"filter.id\" />\n      </md-input-container>\n    </div>\n  </md-list-item>\n</md-list>\n\n\n  <button md-raised-button color=\"primary\" (click)=\"add()\">Ny</button>\n  <button md-raised-button color=\"primary\" (click)=\"save()\">Gem</button>"
 
 /***/ }),
 
-/***/ 208:
+/***/ 376:
 /***/ (function(module, exports) {
 
 module.exports = "<app-header></app-header>\n\n<div class=\"date-navigation\">\n  <div class=\"days\">\n    <a *ngFor=\"let day of availableDays\" (click)=\"gotoDate(day)\" class=\"day\" [class.day_selected]=\"day.getDate() == selectedDay.getDate()\"[class.day_current]=\"day.getDate() == currentDay.getDate()\">\n      {{day | date:'EEE'}}\n      <span class=\"day__date\">{{day | date:'dd/MM'}}</span>\n      </a>\n  </div>\n</div>\n\n<div class=\"day-summary\">\n  Der er i alt reigstreret {{totalDayHours | formatTime}} timer for dagen\n</div>\n\n<div class=\"trackings\">\n  <app-tracking-item *ngFor=\"let tracking of trackings | filterDate:selectedDay\" [tracking]=\"tracking\"></app-tracking-item>\n</div>\n\n\n<div class=\"bottom-action-container\">\n  <button md-raised-button color=\"primary\" (click)=\"addNewTracking()\">Start ny registrering</button>\n</div>\n"
 
 /***/ }),
 
-/***/ 209:
+/***/ 377:
 /***/ (function(module, exports) {
 
 module.exports = "\n  <a class=\"state-button\" \n    [class.state-button__playing]=\"tracking._id === trackingService.currentTracking._id\" \n    (click)=\"toggleTracking(tracking._id, tracking._id !== trackingService.currentTracking._id)\">\n      <span [hidden]=\"tracking._id !== trackingService.currentTracking._id\"><i class=\"material-icons\">pause_circle_filled</i></span>\n      <span [hidden]=\"tracking._id === trackingService.currentTracking._id\"><i class=\"material-icons\">play_circle_filled</i></span>\n  </a>\n\n  <div class=info-container>\n\n    <div class=\"jira-id\" [class.jira-id_not-set]=\"tracking.jiraId === ''\" (click)=\"openSelectJiraIdDialog(tracking)\">\n      <span [hidden]=\"tracking.jiraId === ''\" >{{tracking.jiraId}} </span>\n      <span [hidden]=\"tracking.jiraId !== ''\" >Ingen Jira case </span>\n      <span class=\"title\">{{tracking.title}}</span>\n    </div>\n\n    <div class=\"comment\">\n      <input class=\"comment-input\" (blur)=\"editComment(tracking)\" [class.comment-input_not-valid]=\"tracking.comment === ''\" [(ngModel)]=\"tracking.comment\" />\n    </div>\n\n    <div class=\"time\" (click)=\"openChangeTimeDialog(tracking)\" [class.blink_me]=\"tracking._id === trackingService.currentTracking._id\">\n      {{tracking.time | formatTime}}\n    </div>\n\n    <div class=\"actions\">\n      <a [hidden]=\"tracking.jiraId === ''\" href=\"https://jira.impact.dk/browse/{{tracking.jiraId}}\" target=\"_blank\"><i class=\"material-icons actions_icon\">launch</i></a>\n      <a (click)=\"deleteTracking(tracking._id)\"><i class=\"material-icons actions_icon\">delete</i></a>\n    </div>\n\n  </div>\n"
 
 /***/ }),
 
-/***/ 210:
+/***/ 378:
 /***/ (function(module, exports) {
 
-module.exports = "Timer du har registreret i denne uge<br />\n\n\n{{hoursRecorded  | formatTime}}"
+module.exports = "<h2>\n  Timer du har registreret {{hoursRecorded  | formatTime}} i denne uge\n</h2>\n\n<div style=\"display: block; width:300px; \">\n  <canvas baseChart\n              [data]=\"doughnutChartData\"\n              [labels]=\"doughnutChartLabels\"\n              [chartType]=\"doughnutChartType\"></canvas>\n</div>"
 
 /***/ }),
 
-/***/ 264:
+/***/ 431:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(109);
+module.exports = __webpack_require__(229);
 
 
 /***/ }),
 
-/***/ 43:
+/***/ 44:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=tracking.interface.js.map
 
 /***/ }),
 
-/***/ 44:
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__storage_service__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_service__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__storage_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_service__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JiraCaseService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1091,7 +1313,7 @@ var JiraCaseService = (function () {
     return JiraCaseService;
 }());
 JiraCaseService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__storage_service__["a" /* StorageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__storage_service__["a" /* StorageService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__login_service__["a" /* LoginService */]) === "function" && _c || Object])
 ], JiraCaseService);
 
@@ -1100,7 +1322,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 45:
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1135,7 +1357,7 @@ var StorageService = (function () {
     return StorageService;
 }());
 StorageService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [])
 ], StorageService);
 
@@ -1143,29 +1365,29 @@ StorageService = __decorate([
 
 /***/ }),
 
-/***/ 71:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_jira_case_service__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_jira_case_service__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_of__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_of__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_catch__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_catch__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_debounceTime__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_debounceTime__ = __webpack_require__(388);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(389);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_switchMap__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_switchMap__ = __webpack_require__(215);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_switchMap__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangeJiraIdComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1242,18 +1464,18 @@ var ChangeJiraIdComponent = (function () {
     return ChangeJiraIdComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('searchBox'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* ElementRef */]) === "function" && _a || Object)
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('searchBox'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
 ], ChangeJiraIdComponent.prototype, "el", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__["ITracking"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_tracking_interface__["ITracking"]) === "function" && _b || Object)
 ], ChangeJiraIdComponent.prototype, "tracking", void 0);
 ChangeJiraIdComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-change-jira-id',
-        template: __webpack_require__(203),
-        styles: [__webpack_require__(183)]
+        template: __webpack_require__(371),
+        styles: [__webpack_require__(348)]
     }),
     __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_jira_case_service__["a" /* JiraCaseService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_jira_case_service__["a" /* JiraCaseService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_tracking_service__["a" /* TrackingService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _e || Object])
 ], ChangeJiraIdComponent);
@@ -1263,15 +1485,15 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
-/***/ 72:
+/***/ 73:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_tracking_interface__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_tracking_interface__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_tracking_interface___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__models_tracking_interface__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(12);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangeTimeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1305,14 +1527,14 @@ var ChangeTimeComponent = (function () {
     return ChangeTimeComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__models_tracking_interface__["ITracking"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__models_tracking_interface__["ITracking"]) === "function" && _a || Object)
 ], ChangeTimeComponent.prototype, "tracking", void 0);
 ChangeTimeComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-change-time',
-        template: __webpack_require__(204),
-        styles: [__webpack_require__(189)]
+        template: __webpack_require__(372),
+        styles: [__webpack_require__(354)]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdDialog */]) === "function" && _c || Object])
 ], ChangeTimeComponent);
@@ -1322,13 +1544,13 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 73:
+/***/ 74:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__ = __webpack_require__(13);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfirmDeleteComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1356,14 +1578,14 @@ var ConfirmDeleteComponent = (function () {
     return ConfirmDeleteComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], ConfirmDeleteComponent.prototype, "id", void 0);
 ConfirmDeleteComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-confirm-delete',
-        template: __webpack_require__(205),
-        styles: [__webpack_require__(190)]
+        template: __webpack_require__(373),
+        styles: [__webpack_require__(355)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _b || Object])
 ], ConfirmDeleteComponent);
@@ -1373,7 +1595,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 74:
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1405,12 +1627,12 @@ var DateHelper = (function () {
 
 /***/ }),
 
-/***/ 75:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_jira_case_service__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_jira_case_service__ = __webpack_require__(45);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JiraFilterAdminComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1447,10 +1669,10 @@ var JiraFilterAdminComponent = (function () {
     return JiraFilterAdminComponent;
 }());
 JiraFilterAdminComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-jira-filter-admin',
-        template: __webpack_require__(207),
-        styles: [__webpack_require__(191)]
+        template: __webpack_require__(375),
+        styles: [__webpack_require__(356)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_jira_case_service__["a" /* JiraCaseService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_jira_case_service__["a" /* JiraCaseService */]) === "function" && _a || Object])
 ], JiraFilterAdminComponent);
@@ -1460,7 +1682,49 @@ var _a;
 
 /***/ }),
 
-/***/ 76:
+/***/ 77:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormatTimePipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var FormatTimePipe = (function () {
+    function FormatTimePipe() {
+    }
+    FormatTimePipe.prototype.transform = function (value, args) {
+        var secs = Math.round(value);
+        var hours = Math.floor(secs / (60 * 60));
+        var minutes = Math.floor((secs % (60 * 60)) / 60);
+        var hours_formatted = hours.toString();
+        var minutes_formatted = minutes.toString();
+        if (hours < 10) {
+            hours_formatted = '0' + hours_formatted;
+        }
+        if (minutes < 10) {
+            minutes_formatted = '0' + minutes_formatted;
+        }
+        return hours_formatted + ":" + minutes_formatted;
+    };
+    return FormatTimePipe;
+}());
+FormatTimePipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'formatTime'
+    })
+], FormatTimePipe);
+
+//# sourceMappingURL=format-time.pipe.js.map
+
+/***/ }),
+
+/***/ 78:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1476,7 +1740,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var Datastore = __webpack_require__(196);
+var Datastore = __webpack_require__(362);
 var dataB = 'database.db';
 var DatabaseService = (function () {
     function DatabaseService() {
@@ -1540,7 +1804,7 @@ var DatabaseService = (function () {
     return DatabaseService;
 }());
 DatabaseService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [])
 ], DatabaseService);
 
@@ -1548,12 +1812,12 @@ DatabaseService = __decorate([
 
 /***/ }),
 
-/***/ 77:
+/***/ 79:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(12);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1577,7 +1841,7 @@ var LoginService = (function () {
     return LoginService;
 }());
 LoginService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _a || Object])
 ], LoginService);
 
@@ -1586,12 +1850,13 @@ var _a;
 
 /***/ }),
 
-/***/ 78:
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_tracking_service__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipes_format_time_pipe__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__ = __webpack_require__(13);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WeekgraphComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1604,22 +1869,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var WeekgraphComponent = (function () {
     function WeekgraphComponent(trackingService) {
+        var _this = this;
         this.trackingService = trackingService;
+        this.doughnutChartLabels = [];
+        this.doughnutChartData = [];
+        this.projects = [];
+        this.doughnutChartType = 'doughnut';
+        this.projects = this.groupBy(this.trackingService.trackings);
+        this.projects.forEach(function (item) {
+            var f = new __WEBPACK_IMPORTED_MODULE_1__pipes_format_time_pipe__["a" /* FormatTimePipe */]();
+            _this.doughnutChartData.push(item.time);
+            _this.doughnutChartLabels.push(item.jiraId);
+        });
     }
+    WeekgraphComponent.prototype.groupBy = function (list) {
+        return list.reduce(function (res, obj) {
+            if (!(obj.jiraId in res)) {
+                res.__array.push(res[obj.jiraId] = obj);
+            }
+            else {
+                res[obj.jiraId].time += obj.time;
+                res[obj.jiraId].jiraId = obj.jiraId;
+            }
+            return res;
+        }, { __array: [] }).__array;
+    };
     WeekgraphComponent.prototype.ngOnInit = function () {
         this.hoursRecorded = this.trackingService.getHoursPrWeek();
     };
     return WeekgraphComponent;
 }());
 WeekgraphComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-weekgraph',
-        template: __webpack_require__(210),
-        styles: [__webpack_require__(187)]
+        template: __webpack_require__(378),
+        styles: [__webpack_require__(352)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_tracking_service__["a" /* TrackingService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tracking_service__["a" /* TrackingService */]) === "function" && _a || Object])
 ], WeekgraphComponent);
 
 var _a;
@@ -1627,5 +1916,5 @@ var _a;
 
 /***/ })
 
-},[264]);
+},[431]);
 //# sourceMappingURL=main.bundle.js.map

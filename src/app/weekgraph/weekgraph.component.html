@@ -1,4 +1,10 @@
-Timer du har registreret i denne uge<br />
+<h2>
+  Timer du har registreret {{hoursRecorded  | formatTime}} i denne uge
+</h2>
 
-
-{{hoursRecorded  | formatTime}}
+<div style="display: block; width:300px; ">
+  <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"></canvas>
+</div>
