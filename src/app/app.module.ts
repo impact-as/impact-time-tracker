@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ChartsModule } from 'ng2-charts';
+import 'chart.js';
 import 'hammerjs';
 
 import { MaterialModule } from '@angular/material';
@@ -54,6 +56,7 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 		FormsModule,
 		HttpModule,
 		BrowserAnimationsModule,
+		ChartsModule,
 		MaterialModule.forRoot()
 	],
 	providers: [

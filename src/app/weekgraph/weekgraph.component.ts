@@ -1,21 +1,49 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { FormatTimePipe } from '../pipes/format-time.pipe';
 import { TrackingService } from '../services/tracking.service';
 
 @Component({
-  selector: 'app-weekgraph',
-  templateUrl: './weekgraph.component.html',
-  styleUrls: ['./weekgraph.component.scss']
+	selector: 'app-weekgraph',
+	templateUrl: './weekgraph.component.html',
+	styleUrls: ['./weekgraph.component.scss']
 })
 export class WeekgraphComponent implements OnInit {
 
 
-  public hoursRecorded:number;
-  constructor(private trackingService:TrackingService) { }
+	public doughnutChartLabels: string[] = [];
+	public doughnutChartData: number[] = [];
 
-  ngOnInit() {
+	public projects: any[] = [];
+	public doughnutChartType: string = 'doughnut';
 
-      this.hoursRecorded = this.trackingService.getHoursPrWeek();
-  }
+	public hoursRecorded: number;
+	constructor(private trackingService: TrackingService) {
+
+		this.projects = this.groupBy(this.trackingService.trackings);
+		this.projects.forEach( item => {
+			let f = new FormatTimePipe();
+			this.doughnutChartData.push(item.time);
+			this.doughnutChartLabels.push(item.jiraId);
+		});
+
+	}
+
+	public groupBy(list) {
+		return list.reduce(function (res, obj) {
+			if (!(obj.jiraId in res)) {
+				res.__array.push(res[obj.jiraId] = obj);
+			} else {
+				res[obj.jiraId].time += obj.time;
+				res[obj.jiraId].jiraId = obj.jiraId;
+			}
+			return res;
+		}, { __array: [] }).__array;
+	}
+
+	ngOnInit() {
+
+		this.hoursRecorded = this.trackingService.getHoursPrWeek();
+	}
 
 }

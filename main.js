@@ -6,7 +6,7 @@ let win;
 
 function createWindow () {
   
-  win = new BrowserWindow({width: 950, height: 600});
+  win = new BrowserWindow({width: 1950, height: 600});
   win.loadURL(url.format({
     pathname: path.join(__dirname, '/dist/index.html'),
     protocol: 'file:',
@@ -14,7 +14,7 @@ function createWindow () {
   }));
   // win.loadURL("http://localhost:4200/");
 
-//  win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   win.on('closed', () => {
     win = null;
