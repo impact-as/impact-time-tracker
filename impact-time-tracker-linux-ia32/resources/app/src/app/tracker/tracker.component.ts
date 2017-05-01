@@ -5,7 +5,7 @@ import { MdDialog } from '@angular/material';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
-import { TrackingInterface } from '../models/tracking.interface';
+import { ITracking } from '../models/tracking.interface';
 import { TrackingService } from '../services/tracking.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class TrackerComponent implements OnInit {
 	public availableDays:Date[] = [];
 	public currentDay: Date;
 	public selectedDay: Date;
-	public trackings: TrackingInterface[];
+	public trackings: ITracking[];
 	public totalDayHours: number = 0;
 
 	constructor(public trackingService: TrackingService, public dialog: MdDialog) {

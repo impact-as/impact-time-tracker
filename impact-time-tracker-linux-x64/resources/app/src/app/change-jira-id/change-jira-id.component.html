@@ -17,14 +17,13 @@
 <div [hidden]="searchBox.value !== ''">
 
   <md-tab-group>
-    <!--<md-tab label="Favoritter">
-      <div *ngFor="let item of favorites" class="jira-item" (click)="clickJiraCase(item)">
-        <b>{{item.jiraId}}</b> - {{item.title}}
-      </div>
-    </md-tab>-->
-    
     <md-tab label="Assignet til mig">
       <div *ngFor="let item of assignedToMe" class="jira-item" (click)="clickJiraCase(item)">
+        <b>{{item.jiraId}}</b> - {{item.title}}
+      </div>
+    </md-tab>
+    <md-tab label="{{filter.title}}" *ngFor="let filter of filters">
+      <div *ngFor="let item of filter.issues" class="jira-item" (click)="clickJiraCase(item)">
         <b>{{item.jiraId}}</b> - {{item.title}}
       </div>
     </md-tab>

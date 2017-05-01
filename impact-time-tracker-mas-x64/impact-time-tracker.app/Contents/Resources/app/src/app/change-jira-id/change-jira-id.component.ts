@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
-import { TrackingInterface } from '../models/tracking.interface';
-import { JiraCaseInterface } from '../models/jira-case.interface';
+import { ITracking } from '../models/tracking.interface';
+import { IJiraCase } from '../models/jira-case.interface';
+import { IJiraFilter } from '../models/jira-filter.interface';
 
 import { TrackingService } from '../services/tracking.service';
 import { JiraCaseService } from '../services/jira-case.service';
@@ -27,21 +28,37 @@ export class ChangeJiraIdComponent implements OnInit {
 
 
 	@Input()
-	public tracking: TrackingInterface;
+	public tracking: ITracking;
 
-	public favorites: JiraCaseInterface[];
-	public assignedToMe: JiraCaseInterface[];
-	public searchResult: JiraCaseInterface[] = [];
+	public favorites: IJiraCase[];
+	public assignedToMe: IJiraCase[];
+	public searchResult: IJiraCase[] = [];
+
+	public filters: IJiraFilter[] = [];
 
 	constructor(private jiraCaseService: JiraCaseService,
-				private trackingService: TrackingService,
-				private dialog: MdDialog) {
+		private trackingService: TrackingService,
+		private dialog: MdDialog) {
 
-			this.jiraCaseService.getAssigneeCases('currentuser()');
+		this.jiraCaseService.getCasesAssinedTo().subscribe((body: any) => {
+			if (body.issues !== undefined) {
+				this.assignedToMe.splice(0, this.assignedToMe.length);
+				body.issues.forEach(item => {
+					const jiracase: IJiraCase = {} as IJiraCase;
+					jiracase.jiraId = item.key;
+					jiracase.title = item.fields.summary;
+					this.assignedToMe.push(jiracase);
+				});
 
-				}
+			}
+		});
 
-	clickJiraCase(jiraCase: JiraCaseInterface) {
+		this.jiraCaseService.updateFilterResults();
+
+	}
+
+
+	clickJiraCase(jiraCase: IJiraCase) {
 		this.tracking.jiraId = jiraCase.jiraId;
 		this.tracking.title = jiraCase.title;
 		this.trackingService.update(this.tracking);
@@ -53,18 +70,17 @@ export class ChangeJiraIdComponent implements OnInit {
 
 	ngOnInit() {
 		this.assignedToMe = this.jiraCaseService.assignedToMe;
-		this.favorites = this.jiraCaseService.favorites;
+		this.filters = this.jiraCaseService.filters;
 
 		this.searchTerms
 			.debounceTime(250)
 			.distinctUntilChanged()
-			.switchMap(term => term ? this.jiraCaseService.search(term) : Observable.of<any[]>([])).subscribe( (items) => {
-				
+			.switchMap(term => term ? this.jiraCaseService.search(term) : Observable.of<any[]>([])).subscribe((body: any) => {
+
 				this.searchResult.splice(0, this.searchResult.length);
-				let body:any = items;
-				if(body.issues !== undefined) {
-					body.issues.forEach( item => {
-						const jiracase: JiraCaseInterface = {} as JiraCaseInterface;
+				if (body.issues !== undefined) {
+					body.issues.forEach(item => {
+						const jiracase: IJiraCase = {} as IJiraCase;
 						jiracase.jiraId = item.key;
 						jiracase.title = item.fields.summary;
 						this.searchResult.push(jiracase);

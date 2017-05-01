@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { TrackingInterface } from '../models/tracking.interface';
+import { ITracking } from '../models/tracking.interface';
 import { TrackingService } from '../services/tracking.service';
 import { MdDialog } from '@angular/material';
 
@@ -12,7 +12,7 @@ import { MdDialog } from '@angular/material';
 export class ChangeTimeComponent implements OnInit {
 
 	@Input()
-	public tracking: TrackingInterface;
+	public tracking: ITracking;
 
 	public hours: number;
 	public minutes: number;

@@ -25,6 +25,7 @@ import { TrackingItemComponent } from './tracking-item/tracking-item.component';
 import { DatabaseService } from './services/database.service';
 import { LoginService } from './services/login.service';
 import { TempoService } from './services/tempo.service';
+import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.component';
 
 @NgModule({
 	declarations: [
@@ -37,14 +38,16 @@ import { TempoService } from './services/tempo.service';
 		HeaderComponent,
 		WeekgraphComponent,
 		ConfirmDeleteComponent,
-		TrackingItemComponent
+		TrackingItemComponent,
+		JiraFilterAdminComponent
 	],
 	entryComponents: [
 		ChangeTimeComponent,
 		ChangeJiraIdComponent,
 		WeekgraphComponent,
 		ConfirmDeleteComponent,
-		TrackingItemComponent
+		TrackingItemComponent,
+		JiraFilterAdminComponent
 	],
 	imports: [
 		BrowserModule,

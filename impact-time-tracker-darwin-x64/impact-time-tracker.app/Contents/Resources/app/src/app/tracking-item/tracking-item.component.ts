@@ -1,7 +1,7 @@
 import { Component, OnInit,  Input } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
-import { TrackingInterface } from '../models/tracking.interface';
+import { ITracking } from '../models/tracking.interface';
 
 import { TrackingService } from '../services/tracking.service';
 
@@ -17,24 +17,27 @@ import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.compone
 export class TrackingItemComponent implements OnInit {
 
 	@Input()
-	public tracking: TrackingInterface;
+	public tracking: ITracking;
 
 	constructor(public trackingService: TrackingService, public dialog: MdDialog) {
 
 	}
 
-	public openSelectJiraIdDialog(tracking: TrackingInterface) {
-		const instance = this.dialog.open(ChangeJiraIdComponent);
+	public openSelectJiraIdDialog(tracking: ITracking) {
+		const instance = this.dialog.open(ChangeJiraIdComponent, {
+			height: '80%',
+			width: '80%',
+		});
 		instance.componentInstance['tracking'] = tracking;
 	}
 
-	public openChangeTimeDialog(tracking: TrackingInterface) {
+	public openChangeTimeDialog(tracking: ITracking) {
 		this.trackingService.pause(tracking._id);
 		const instance = this.dialog.open(ChangeTimeComponent);
 		instance.componentInstance['tracking'] = tracking;
 	}
 
-	public editComment(tracking: TrackingInterface) {
+	public editComment(tracking: ITracking) {
 		this.trackingService.update(tracking);
 	}
 

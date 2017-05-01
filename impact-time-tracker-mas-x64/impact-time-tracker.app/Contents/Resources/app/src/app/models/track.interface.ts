@@ -1,4 +1,4 @@
-export interface TrackInterface {
+export interface ITrack {
 	start: Date;
 	now: Date;
 	diff: number;

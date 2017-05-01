@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable,  } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { TrackingInterface } from '../models/tracking.interface';
-import { JiraCaseInterface } from '../models/jira-case.interface';
-import { TrackInterface } from '../models/track.interface';
+import { ITracking } from '../models/tracking.interface';
+import { IJiraCase } from '../models/jira-case.interface';
+import { ITrack } from '../models/track.interface';
 
 import { GUID } from '../helpers/GUID';
 import { DateHelper } from '../helpers/date-helper';
@@ -26,13 +26,13 @@ export enum ChangeType {
 export class TrackingService {
 
 
-	public currentTracking: TrackingInterface = { _id: '000' } as TrackingInterface;
-	public trackings: TrackingInterface[] = [];
+	public currentTracking: ITracking = { _id: '000' } as ITracking;
+	public trackings: ITracking[] = [];
 	public totalDayHours: number = 0;
 
 	public updateSubscriber: BehaviorSubject<ChangeType> = new BehaviorSubject(0);
 
-	public track: TrackInterface  = { active: false } as TrackInterface;
+	public track: ITrack  = { active: false } as ITrack;
 
 	constructor(private storageService: StorageService, private databaseService: DatabaseService) {
 
@@ -42,7 +42,7 @@ export class TrackingService {
 
 	public getTrackings() {
 		this.databaseService.findAll().then( (trackings) => {
-			const tracks = trackings !== null ? trackings as TrackingInterface[] : [];
+			const tracks = trackings !== null ? trackings as ITracking[] : [];
 			tracks.forEach( (item) => {
 				this.trackings.push(item);
 			});
@@ -51,8 +51,8 @@ export class TrackingService {
 		});
 	}
 
-	public add(jiraId: string = '', date: Date = null): TrackingInterface {
-		const tracking: TrackingInterface = {} as TrackingInterface;
+	public add(jiraId: string = '', date: Date = null): ITracking {
+		const tracking: ITracking = {} as ITracking;
 		tracking._id = new GUID().toString();
 		tracking.comment = '';
 		tracking.jiraId = jiraId;
@@ -83,7 +83,7 @@ export class TrackingService {
 		});
 	}
 
-	public update(tracking: TrackingInterface) {
+	public update(tracking: ITracking) {
 		this.saveTracking(tracking);
 		this.updateSubscriber.next(ChangeType.UPDATED);
 	}
@@ -95,7 +95,7 @@ export class TrackingService {
 		const firstdayString = new DateHelper().dateToDateString(firstday);
 		const lastdayString = new DateHelper().dateToDateString(lastday);
 
-		const trackings = this.trackings.filter( (item: TrackingInterface) => {
+		const trackings = this.trackings.filter( (item: ITracking) => {
 			return item.date >= firstdayString && item.date <= lastdayString;
 		});
 
@@ -105,14 +105,14 @@ export class TrackingService {
 
 	public getHoursPrDay(day: Date) {
 		const dayString = new DateHelper().dateToDateString(day);
-		const trackings = this.trackings.filter( (item: TrackingInterface) => {
+		const trackings = this.trackings.filter( (item: ITracking) => {
 			return item.date === dayString;
 		});
 		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
 		return sum;
 	}
 
-	private saveTracking(tracking: TrackingInterface) {
+	private saveTracking(tracking: ITracking) {
 		this.databaseService.update(tracking);
 	}
 
@@ -135,7 +135,7 @@ export class TrackingService {
 	}
 	public pause(id: string) {
 		this.track.active = false;
-		this.currentTracking = { _id: '000' } as TrackingInterface;
+		this.currentTracking = { _id: '000' } as ITracking;
 		clearInterval(this.timer);
 	}
 
