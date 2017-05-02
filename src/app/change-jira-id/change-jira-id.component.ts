@@ -30,8 +30,8 @@ export class ChangeJiraIdComponent implements OnInit {
 	@Input()
 	public tracking: ITracking;
 
-	public favorites: IJiraCase[];
-	public assignedToMe: IJiraCase[];
+	public favorites: IJiraCase[] = [];
+	public assignedToMe: IJiraCase[] = [];
 	public searchResult: IJiraCase[] = [];
 
 	public filters: IJiraFilter[] = [];
