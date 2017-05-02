@@ -8,24 +8,28 @@
 
 <div class=info-container>
 
-	<div class="jira-id" [class.jira-id_not-set]="tracking.jiraId === ''" (click)="openSelectJiraIdDialog(tracking)">
-		<span> {{ tracking.jiraId !== '' ? tracking.jiraId : 'Ingen Jira case' }}</span>
-		<span class="title">{{tracking.title}}</span>
+	<div class="info-content">
+		<div class="jira-id" [class.jira-id_not-set]="tracking.jiraId === ''" (click)="openSelectJiraIdDialog(tracking)">
+			<strong> {{ tracking.jiraId !== '' ? tracking.jiraId : 'Tilføj JIRA case' }}</strong>
+			<div class="title">{{tracking.title}}</div>
+		</div>
+
+		<div class="comment">
+			<input class="comment-input" placeholder="Tilføj kommentar" (blur)="editComment()" [class.comment-input_not-valid]="tracking.comment === ''" [(ngModel)]="tracking.comment" />
+		</div>
 	</div>
 
-	<div class="comment">
-		<input class="comment-input" (blur)="editComment()" [class.comment-input_not-valid]="tracking.comment === ''" [(ngModel)]="tracking.comment" />
-	</div>
+	<div class="info-aside">
+		<div class="time" (click)="openChangeTimeDialog()" [class.blink_me]="tracking._id === trackingService.currentTracking._id">
+			{{tracking.time | formatTime}}
+		</div>
 
-	<div class="time" (click)="openChangeTimeDialog()" [class.blink_me]="tracking._id === trackingService.currentTracking._id">
-		{{tracking.time | formatTime}}
-	</div>
-
-	<div class="actions">
-		<a [hidden]="tracking.jiraId === ''" href="https://jira.impact.dk/browse/{{tracking.jiraId}}" target="_blank">
-			<i class="material-icons actions_icon">launch</i>
-		</a>
-		<a (click)="deleteTracking()"><i class="material-icons actions_icon">delete</i></a>
+		<div class="actions">
+			<a [hidden]="tracking.jiraId === ''" href="https://jira.impact.dk/browse/{{tracking.jiraId}}" target="_blank">
+				<i class="material-icons actions_icon">launch</i>
+			</a>
+			<a (click)="deleteTracking()"><i class="material-icons actions_icon">delete</i></a>
+		</div>
 	</div>
 
 </div>

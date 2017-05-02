@@ -17,7 +17,6 @@
 	<app-tracking-item *ngFor="let tracking of trackings | filterDate:selectedDay" [tracking]="tracking"></app-tracking-item>
 </div>
 
-
 <div class="bottom-action-container">
 	<button md-raised-button color="primary" (click)="addNewTracking()">Start ny registrering</button>
 </div>
