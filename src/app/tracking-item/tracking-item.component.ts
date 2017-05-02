@@ -6,7 +6,7 @@ import { ITracking } from '../models/tracking.interface';
 import { TrackingService } from '../services/tracking.service';
 
 import { ChangeTimeComponent } from '../change-time/change-time.component';
-import { ChangeJiraIdComponent } from '../change-jira-id/change-jira-id.component';
+import { JiraChangeId } from '../jira-change-id/jira-change-id.component';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
@@ -24,7 +24,7 @@ export class TrackingItemComponent implements OnInit {
 	}
 
 	public openSelectJiraIdDialog(tracking: ITracking) {
-		const instance = this.dialog.open(ChangeJiraIdComponent, {
+		const instance = this.dialog.open(JiraChangeId, {
 			height: '80%',
 			width: '80%',
 		});

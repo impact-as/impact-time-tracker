@@ -17,11 +17,11 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-	selector: 'app-change-jira-id',
-	templateUrl: './change-jira-id.component.html',
-	styleUrls: ['./change-jira-id.component.scss']
+	selector: 'jira-change-id',
+	templateUrl: './jira-change-id.component.html',
+	styleUrls: ['./jira-change-id.component.scss']
 })
-export class ChangeJiraIdComponent implements OnInit {
+export class JiraChangeId implements OnInit {
 
 	private searchTerms = new Subject<string>();
 	@ViewChild('searchBox') el: ElementRef;

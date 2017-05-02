@@ -18,7 +18,7 @@ import { JiraCaseService } from './services/jira-case.service';
 import { FormatTimePipe } from './pipes/format-time.pipe';
 import { FilterDatePipe } from './pipes/filter-date.pipe';
 import { ChangeTimeComponent } from './change-time/change-time.component';
-import { ChangeJiraIdComponent } from './change-jira-id/change-jira-id.component';
+import { JiraChangeId } from './jira-change-id/jira-change-id.component';
 import { HeaderComponent } from './header/header.component';
 import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
@@ -36,7 +36,7 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 		FormatTimePipe,
 		FilterDatePipe,
 		ChangeTimeComponent,
-		ChangeJiraIdComponent,
+		JiraChangeId,
 		HeaderComponent,
 		WeekgraphComponent,
 		ConfirmDeleteComponent,
@@ -45,7 +45,7 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 	],
 	entryComponents: [
 		ChangeTimeComponent,
-		ChangeJiraIdComponent,
+		JiraChangeId,
 		WeekgraphComponent,
 		ConfirmDeleteComponent,
 		TrackingItemComponent,
