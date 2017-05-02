@@ -5,10 +5,10 @@ import { TrackingService } from '../services/tracking.service';
 
 @Component({
 	selector: 'app-confirm-delete',
-	templateUrl: './confirm-delete.component.html',
-	styleUrls: ['./confirm-delete.component.css']
+	templateUrl: './tracker-confirm-delete.component.html',
+	styleUrls: ['./tracker-confirm-delete.component.css']
 })
-export class ConfirmDeleteComponent implements OnInit {
+export class TrackerConfirmDeleteComponent implements OnInit {
 
 	@Input()
 	public id: string;

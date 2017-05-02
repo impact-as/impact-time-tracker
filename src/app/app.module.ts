@@ -21,7 +21,7 @@ import { ChangeTimeComponent } from './change-time/change-time.component';
 import { JiraChangeId } from './jira-change-id/jira-change-id.component';
 import { HeaderComponent } from './header/header.component';
 import { WeekgraphComponent } from './weekgraph/weekgraph.component';
-import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
+import { TrackerConfirmDeleteComponent } from './tracker-confirm-delete/tracker-confirm-delete.component';
 import { TrackingItemComponent } from './tracking-item/tracking-item.component';
 
 import { DatabaseService } from './services/database.service';
@@ -39,7 +39,7 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 		JiraChangeId,
 		HeaderComponent,
 		WeekgraphComponent,
-		ConfirmDeleteComponent,
+		TrackerConfirmDeleteComponent,
 		TrackingItemComponent,
 		JiraFilterAdminComponent
 	],
@@ -47,7 +47,7 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 		ChangeTimeComponent,
 		JiraChangeId,
 		WeekgraphComponent,
-		ConfirmDeleteComponent,
+		TrackerConfirmDeleteComponent,
 		TrackingItemComponent,
 		JiraFilterAdminComponent
 	],

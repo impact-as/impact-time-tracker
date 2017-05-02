@@ -7,7 +7,7 @@ import { TrackingService } from '../services/tracking.service';
 
 import { ChangeTimeComponent } from '../change-time/change-time.component';
 import { JiraChangeId } from '../jira-change-id/jira-change-id.component';
-import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+import { TrackerConfirmDeleteComponent } from '../tracker-confirm-delete/tracker-confirm-delete.component';
 
 @Component({
 	selector: 'app-tracking-item',
@@ -60,7 +60,7 @@ export class TrackingItemComponent implements OnInit {
 	}
 
 	public deleteTracking() {
-		const instance = this.dialog.open(ConfirmDeleteComponent);
+		const instance = this.dialog.open(TrackerConfirmDeleteComponent);
 		instance.componentInstance['id'] = this.tracking._id;
 	}
 	ngOnInit() {
