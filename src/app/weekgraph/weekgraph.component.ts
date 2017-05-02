@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { FormatTimePipe } from '../pipes/format-time.pipe';
 import { TrackingService } from '../services/tracking.service';
 
 @Component({
@@ -20,10 +19,9 @@ export class WeekgraphComponent implements OnInit {
 	public hoursRecorded: number;
 	constructor(private trackingService: TrackingService) {
 
-		this.projects = this.groupBy(this.trackingService.trackings);
+		this.projects = this.groupBy(this.trackingService.getTrackingsPrWeek());
 		this.projects.forEach( item => {
-			let f = new FormatTimePipe();
-			this.doughnutChartData.push(item.time);
+			this.doughnutChartData.push( Math.round(item.time / 60) / 60 );
 			this.doughnutChartLabels.push(item.jiraId);
 		});
 

@@ -89,18 +89,20 @@ export class TrackingService {
 	}
 
 	public getHoursPrWeek() {
+		const trackings = this.getTrackingsPrWeek();
+		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
+		return sum;
+	}
+
+	public getTrackingsPrWeek() {
 		const curr = new Date;
 		const firstday = new Date(curr.setDate(curr.getDate() - curr.getDay() + 1));
 		const lastday = new Date(curr.setDate(curr.getDate() - curr.getDay() + 7));
 		const firstdayString = new DateHelper().dateToDateString(firstday);
 		const lastdayString = new DateHelper().dateToDateString(lastday);
-
-		const trackings = this.trackings.filter( (item: ITracking) => {
+		return this.trackings.filter( (item: ITracking) => {
 			return item.date >= firstdayString && item.date <= lastdayString;
 		});
-
-		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
-		return sum;
 	}
 
 	public getHoursPrDay(day: Date) {

@@ -1,6 +1,6 @@
 webpackJsonp([2,4],{
 
-/***/ 231:
+/***/ 230:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -298,7 +298,7 @@ function updateLink(linkElement, obj) {
 /***/ 430:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(231);
+module.exports = __webpack_require__(230);
 
 
 /***/ }),
