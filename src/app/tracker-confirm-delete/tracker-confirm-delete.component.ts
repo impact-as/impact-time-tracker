@@ -4,7 +4,7 @@ import { MdDialog } from '@angular/material';
 import { TrackingService } from '../services/tracking.service';
 
 @Component({
-	selector: 'app-confirm-delete',
+	selector: 'tracker-confirm-delete',
 	templateUrl: './tracker-confirm-delete.component.html',
 	styleUrls: ['./tracker-confirm-delete.component.css']
 })

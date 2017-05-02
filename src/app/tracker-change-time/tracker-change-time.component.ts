@@ -5,7 +5,7 @@ import { TrackingService } from '../services/tracking.service';
 import { MdDialog } from '@angular/material';
 
 @Component({
-	selector: 'app-change-time',
+	selector: 'tracker-change-time',
 	templateUrl: './tracker-change-time.component.html',
 	styleUrls: ['./tracker-change-time.component.css']
 })
