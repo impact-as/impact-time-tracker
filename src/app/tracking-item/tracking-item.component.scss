@@ -1,4 +1,3 @@
-
 $not-valid: rgba(#d05921, 0.3);
 $playing: #94C11E;
 
@@ -97,6 +96,12 @@ $playing: #94C11E;
   left:10px;
   color:#e2e2e2;
   cursor:pointer;
+  background-color:transparent;
+  border:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  border-radius:0;
+  outline:none;
 
   i {
     font-size: 74px;

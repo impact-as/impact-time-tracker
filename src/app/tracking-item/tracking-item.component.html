@@ -1,30 +1,31 @@
+<button class="state-button"
+   [class.state-button__playing]="isCurrentTracking()"
+   (click)="toggleTracking()">
+	<span>
+		<i class="material-icons">{{ isCurrentTracking() ? 'pause_circle_filled' : 'play_circle_filled' }}</i>
+	</span>
+</button>
 
-  <a class="state-button" 
-    [class.state-button__playing]="tracking._id === trackingService.currentTracking._id" 
-    (click)="toggleTracking(tracking._id, tracking._id !== trackingService.currentTracking._id)">
-      <span [hidden]="tracking._id !== trackingService.currentTracking._id"><i class="material-icons">pause_circle_filled</i></span>
-      <span [hidden]="tracking._id === trackingService.currentTracking._id"><i class="material-icons">play_circle_filled</i></span>
-  </a>
+<div class=info-container>
 
-  <div class=info-container>
+	<div class="jira-id" [class.jira-id_not-set]="tracking.jiraId === ''" (click)="openSelectJiraIdDialog(tracking)">
+		<span> {{ tracking.jiraId !== '' ? tracking.jiraId : 'Ingen Jira case' }}</span>
+		<span class="title">{{tracking.title}}</span>
+	</div>
 
-    <div class="jira-id" [class.jira-id_not-set]="tracking.jiraId === ''" (click)="openSelectJiraIdDialog(tracking)">
-      <span [hidden]="tracking.jiraId === ''" >{{tracking.jiraId}} </span>
-      <span [hidden]="tracking.jiraId !== ''" >Ingen Jira case </span>
-      <span class="title">{{tracking.title}}</span>
-    </div>
+	<div class="comment">
+		<input class="comment-input" (blur)="editComment()" [class.comment-input_not-valid]="tracking.comment === ''" [(ngModel)]="tracking.comment" />
+	</div>
 
-    <div class="comment">
-      <input class="comment-input" (blur)="editComment(tracking)" [class.comment-input_not-valid]="tracking.comment === ''" [(ngModel)]="tracking.comment" />
-    </div>
+	<div class="time" (click)="openChangeTimeDialog()" [class.blink_me]="tracking._id === trackingService.currentTracking._id">
+		{{tracking.time | formatTime}}
+	</div>
 
-    <div class="time" (click)="openChangeTimeDialog(tracking)" [class.blink_me]="tracking._id === trackingService.currentTracking._id">
-      {{tracking.time | formatTime}}
-    </div>
+	<div class="actions">
+		<a [hidden]="tracking.jiraId === ''" href="https://jira.impact.dk/browse/{{tracking.jiraId}}" target="_blank">
+			<i class="material-icons actions_icon">launch</i>
+		</a>
+		<a (click)="deleteTracking()"><i class="material-icons actions_icon">delete</i></a>
+	</div>
 
-    <div class="actions">
-      <a [hidden]="tracking.jiraId === ''" href="https://jira.impact.dk/browse/{{tracking.jiraId}}" target="_blank"><i class="material-icons actions_icon">launch</i></a>
-      <a (click)="deleteTracking(tracking._id)"><i class="material-icons actions_icon">delete</i></a>
-    </div>
-
-  </div>
+</div>

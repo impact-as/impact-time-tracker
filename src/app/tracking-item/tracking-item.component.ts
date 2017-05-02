@@ -28,31 +28,40 @@ export class TrackingItemComponent implements OnInit {
 			height: '80%',
 			width: '80%',
 		});
-		instance.componentInstance['tracking'] = tracking;
+
+		instance.componentInstance['tracking'] = this.tracking;
 	}
 
-	public openChangeTimeDialog(tracking: ITracking) {
-		this.trackingService.pause(tracking._id);
+	public openChangeTimeDialog() {
 		const instance = this.dialog.open(ChangeTimeComponent);
-		instance.componentInstance['tracking'] = tracking;
+		instance.componentInstance['tracking'] = this.tracking;
+
+		this.trackingService.pause(this.tracking._id);
+
 	}
 
-	public editComment(tracking: ITracking) {
-		this.trackingService.update(tracking);
+	public editComment() {
+		this.trackingService.update(this.tracking);
 	}
 
-	public toggleTracking(id: string, start: boolean) {
+	public toggleTracking() {
+		const start = !this.isCurrentTracking();
+
 		if (start) {
-			this.trackingService.start(id);
+			this.trackingService.start(this.tracking._id);
 		} else {
-			this.trackingService.pause(id);
+			this.trackingService.pause(this.tracking._id);
 		}
 
 	}
 
-	public deleteTracking(id: string) {
+	public isCurrentTracking():boolean {
+		return this.tracking === this.trackingService.currentTracking;
+	}
+
+	public deleteTracking() {
 		const instance = this.dialog.open(ConfirmDeleteComponent);
-		instance.componentInstance['id'] = id;
+		instance.componentInstance['id'] = this.tracking._id;
 	}
 	ngOnInit() {
 	}
