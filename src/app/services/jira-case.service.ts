@@ -27,7 +27,7 @@ export class JiraCaseService {
 		private loginService: LoginService) {
 
 
-		this.filters = this.storageService.read<IJiraFilter[]>('jirafilters');
+		this.filters = this.storageService.read<IJiraFilter[]>('jirafilters') || [];
 
 	}
 
