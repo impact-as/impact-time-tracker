@@ -28,6 +28,7 @@ import { DatabaseService } from './services/database.service';
 import { LoginService } from './services/login.service';
 import { TempoService } from './services/tempo.service';
 import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.component';
+import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 
 @NgModule({
 	declarations: [
@@ -41,7 +42,8 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 		WeekgraphComponent,
 		TrackerConfirmDeleteComponent,
 		TrackingItemComponent,
-		JiraFilterAdminComponent
+		JiraFilterAdminComponent,
+		LayoutFooterComponent
 	],
 	entryComponents: [
 		TrackerChangeTimeComponent,
