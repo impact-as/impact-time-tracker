@@ -1,23 +1,23 @@
 <app-header></app-header>
 
 <div class="date-navigation">
-  <div class="days">
-    <a *ngFor="let day of availableDays" (click)="gotoDate(day)" class="day" [class.day_selected]="day.getDate() == selectedDay.getDate()"[class.day_current]="day.getDate() == currentDay.getDate()">
-      {{day | date:'EEE'}}
-      <span class="day__date">{{day | date:'dd/MM'}}</span>
-      </a>
-  </div>
+	<div class="days">
+		<a *ngFor="let day of availableDays" (click)="gotoDate(day)" class="day" [class.day_selected]="day.getDate() == selectedDay.getDate()"[class.day_current]="day.getDate() == currentDay.getDate()">
+			{{day | date:'EEE'}}
+			<span class="day__date">{{day | date:'dd/MM'}}</span>
+		</a>
+	</div>
 </div>
 
 <div class="day-summary">
-  Der er i alt reigstreret {{totalDayHours | formatTime}} timer for dagen
+	Der er i alt reigstreret {{totalDayHours | formatTime}} timer for dagen
 </div>
 
 <div class="trackings">
-  <app-tracking-item *ngFor="let tracking of trackings | filterDate:selectedDay" [tracking]="tracking"></app-tracking-item>
+	<app-tracking-item *ngFor="let tracking of trackings | filterDate:selectedDay" [tracking]="tracking"></app-tracking-item>
 </div>
 
 
 <div class="bottom-action-container">
-  <button md-raised-button color="primary" (click)="addNewTracking()">Start ny registrering</button>
+	<button md-raised-button color="primary" (click)="addNewTracking()">Start ny registrering</button>
 </div>
