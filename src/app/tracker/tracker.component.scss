@@ -1,70 +1,75 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.80); }
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
 
 
 a {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .bottom-action-container {
-  padding: 20px;
+	padding: 20px;
 }
 
 .day-summary {
-  padding: 20px;
+	padding: 20px;
 }
 
 .trackings {
-  padding: 0px 20px;
+	padding: 0px 20px;
 }
 
 
 .date-navigation {
-  background-color: whitesmoke;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
+	background-color: whitesmoke;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
 }
 
 
 .days {
-  text-align: center;
-  width: 100%;
+	text-align: center;
+	width: 100%;
 }
 
 .day {
-  color: lightgray;
-  display: inline-block;
-  width: 55px;
-  // padding: 10px;
-  text-align: center;
-  text-transform: uppercase;
+	color: lightgray;
+	display: inline-block;
+	width: 55px;
+	// padding: 10px;
+	text-align: center;
+	text-transform: uppercase;
 
-  &_current {
-    color: #CCC;
+	&_current {
+		color: #CCC;
 
-    .day__date {
-      background-color: #CCC;
-      color: white;
-    }
-  }
-  &_selected {
-    color: #17B9D6;
+		.day__date {
+			background-color: #CCC;
+			color: white;
+		}
+	}
+	&_selected {
+		color: #17B9D6;
 
-    .day__date {
-      background-color: #17B9D6;
-      color: white;
-    }
-  }
+		.day__date {
+			background-color: #17B9D6;
+			color: white;
+		}
+	}
 
-  &__date {
-    height:45px;
-    width:45px;
-    line-height: 45px;
-    display: inline-block;
-    border-radius: 50%;
-    font-size: 12px;
-
-  }
+	&__date {
+		height:45px;
+		width:45px;
+		line-height: 45px;
+		display: inline-block;
+		border-radius: 50%;
+		font-size: 12px;
+	}
 }
