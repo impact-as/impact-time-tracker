@@ -1,0 +1,12 @@
+<md-toolbar color="dark">
+
+	<span class="network">
+		<i class="material-icons network__sync">sync</i>
+		<span class="network-status network-status_{{status}}" title="{{status}}"></span>
+	</span>
+
+	<span class="app-toolbar-filler fill-remaining-space"></span>
+
+	<a><i class="material-icons" (click)="openWeekGraph()">equalizer</i></a>
+	<a><i class="material-icons" (click)="openJiraFilterAdmin()">favorite</i></a>
+</md-toolbar>

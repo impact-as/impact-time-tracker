@@ -19,7 +19,7 @@ import { FormatTimePipe } from './pipes/format-time.pipe';
 import { FilterDatePipe } from './pipes/filter-date.pipe';
 import { TrackerChangeTimeComponent } from './tracker-change-time/tracker-change-time.component';
 import { JiraChangeId } from './jira-change-id/jira-change-id.component';
-import { HeaderComponent } from './header/header.component';
+import { LayoutHeaderComponent } from './layout-header/layout-header.component';
 import { WeekgraphComponent } from './weekgraph/weekgraph.component';
 import { TrackerConfirmDeleteComponent } from './tracker-confirm-delete/tracker-confirm-delete.component';
 import { TrackingItemComponent } from './tracking-item/tracking-item.component';
@@ -37,7 +37,7 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 		FilterDatePipe,
 		TrackerChangeTimeComponent,
 		JiraChangeId,
-		HeaderComponent,
+		LayoutHeaderComponent,
 		WeekgraphComponent,
 		TrackerConfirmDeleteComponent,
 		TrackingItemComponent,

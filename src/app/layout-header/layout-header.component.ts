@@ -9,28 +9,32 @@ import { JiraFilterAdminComponent } from '../jira-filter-admin/jira-filter-admin
 
 @Component({
 	selector: 'app-header',
-	templateUrl: './header.component.html',
-	styleUrls: ['./header.component.scss']
+	templateUrl: './layout-header.component.html',
+	styleUrls: ['./layout-header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class LayoutHeaderComponent implements OnInit {
 
-	public online: boolean = false;
+	public status:string = 'offline';
 
 	@HostListener("window:offline", [])
 	onOffline() {
-		this.online = navigator.onLine;
+		this.checkNetwork();
 	}
 
 
 	@HostListener("window:online", [])
 	onLine() {
-		this.online = navigator.onLine;
+		this.checkNetwork();
 	}
 
 	constructor(public trackingService: TrackingService,
 		private dialog: MdDialog) {
 
 
+	}
+
+	public checkNetwork() {
+		this.status = navigator.onLine ? 'online' : 'offline';
 	}
 
 	public openWeekGraph() {
@@ -48,7 +52,7 @@ export class HeaderComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.online = navigator.onLine;
+		this.checkNetwork();
 	}
 
 }
