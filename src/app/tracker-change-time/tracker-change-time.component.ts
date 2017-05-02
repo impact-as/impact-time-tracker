@@ -6,10 +6,10 @@ import { MdDialog } from '@angular/material';
 
 @Component({
 	selector: 'app-change-time',
-	templateUrl: './change-time.component.html',
-	styleUrls: ['./change-time.component.css']
+	templateUrl: './tracker-change-time.component.html',
+	styleUrls: ['./tracker-change-time.component.css']
 })
-export class ChangeTimeComponent implements OnInit {
+export class TrackerChangeTimeComponent implements OnInit {
 
 	@Input()
 	public tracking: ITracking;

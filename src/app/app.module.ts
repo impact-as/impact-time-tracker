@@ -17,7 +17,7 @@ import { StorageService } from './services/storage.service';
 import { JiraCaseService } from './services/jira-case.service';
 import { FormatTimePipe } from './pipes/format-time.pipe';
 import { FilterDatePipe } from './pipes/filter-date.pipe';
-import { ChangeTimeComponent } from './change-time/change-time.component';
+import { TrackerChangeTimeComponent } from './tracker-change-time/tracker-change-time.component';
 import { JiraChangeId } from './jira-change-id/jira-change-id.component';
 import { HeaderComponent } from './header/header.component';
 import { WeekgraphComponent } from './weekgraph/weekgraph.component';
@@ -35,7 +35,7 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 		TrackerComponent,
 		FormatTimePipe,
 		FilterDatePipe,
-		ChangeTimeComponent,
+		TrackerChangeTimeComponent,
 		JiraChangeId,
 		HeaderComponent,
 		WeekgraphComponent,
@@ -44,7 +44,7 @@ import { JiraFilterAdminComponent } from './jira-filter-admin/jira-filter-admin.
 		JiraFilterAdminComponent
 	],
 	entryComponents: [
-		ChangeTimeComponent,
+		TrackerChangeTimeComponent,
 		JiraChangeId,
 		WeekgraphComponent,
 		TrackerConfirmDeleteComponent,
