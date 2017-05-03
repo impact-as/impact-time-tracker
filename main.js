@@ -5,7 +5,7 @@ const url = require('url');
 let win;
 
 function createWindow () {
-	win = new BrowserWindow({width: 1950, height: 600});
+	win = new BrowserWindow({width: 1450, height: 750});
 
 	win.loadURL(url.format({
 		pathname: path.join(__dirname, '/dist/index.html'),
