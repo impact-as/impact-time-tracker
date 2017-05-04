@@ -13,8 +13,8 @@ import { JiraFilterAdminComponent } from '../jira-filter-admin/jira-filter-admin
 	styleUrls: ['./layout-header.component.scss']
 })
 export class LayoutHeaderComponent implements OnInit {
-
-	public status:string = 'offline';
+	public synchronizing:boolean = false;	
+	public status:string = 'offline';	
 
 	@HostListener("window:offline", [])
 	onOffline() {
@@ -31,6 +31,10 @@ export class LayoutHeaderComponent implements OnInit {
 		private dialog: MdDialog) {
 
 
+	}
+
+	public synchronize(){
+		this.synchronizing = !this.synchronizing;
 	}
 
 	public checkNetwork() {

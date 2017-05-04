@@ -1,7 +1,6 @@
 <md-toolbar color="dark">
-
 	<span class="network">
-		<i class="material-icons network__sync">sync</i>
+		<a class="material-icons network__sync" [ngClass]="{'network__sync--updating':synchronizing}" (click)="synchronize()">sync</a>
 		<span class="network-status network-status_{{status}}" title="{{status}}"></span>
 	</span>
 
