@@ -4,6 +4,10 @@ const url = require('url');
 
 let win;
 
+require('electron-reload')(__dirname, {
+  electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+});
+
 function createWindow () {
 	win = new BrowserWindow({width: 1450, height: 750});
 
