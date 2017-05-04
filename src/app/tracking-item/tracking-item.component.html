@@ -15,7 +15,11 @@
 		</div>
 
 		<div class="comment">
-			<input class="comment-input" placeholder="Tilføj kommentar" (blur)="editComment()" [class.comment-input_not-valid]="tracking.comment === ''" [(ngModel)]="tracking.comment" />
+			<input class="comment-input" 
+				placeholder="Tilføj kommentar" 
+				(blur)="editComment()" 
+				[class.comment-input_not-valid]="tracking.comment === ''" 
+				[(ngModel)]="tracking.comment" />
 		</div>
 	</div>
 

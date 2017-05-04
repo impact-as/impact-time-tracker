@@ -10,19 +10,25 @@ import { TrackingService } from '../services/tracking.service';
 export class WeekgraphComponent implements OnInit {
 
 
-	public doughnutChartLabels: string[] = [];
-	public doughnutChartData: number[] = [];
+	public chartLabels: string[] = [];
+	public chartData: number[] = [];
 
 	public projects: any[] = [];
-	public doughnutChartType: string = 'doughnut';
+	public chartType: string = 'doughnut';
+	public chartOptions: any = {
+		legend: {
+			display:false
+		}
+	};
 
 	public hoursRecorded: number;
 	constructor(private trackingService: TrackingService) {
 
 		this.projects = this.groupBy(this.trackingService.getTrackingsPrWeek());
 		this.projects.forEach( item => {
-			this.doughnutChartData.push( Math.round(item.time / 60) / 60 );
-			this.doughnutChartLabels.push(item.jiraId);
+			const timeFormatted = Math.round( (item.time / 60 / 60) * 100) / 100;
+			this.chartData.push(timeFormatted);
+			this.chartLabels.push(`${item.jiraId}: ${item.title}`);
 		});
 
 	}

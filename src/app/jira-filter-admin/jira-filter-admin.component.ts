@@ -8,7 +8,7 @@ import { JiraCaseService } from '../services/jira-case.service';
 @Component({
 	selector: 'app-jira-filter-admin',
 	templateUrl: './jira-filter-admin.component.html',
-	styleUrls: ['./jira-filter-admin.component.css']
+	styleUrls: ['./jira-filter-admin.component.scss']
 })
 export class JiraFilterAdminComponent implements OnInit {
 

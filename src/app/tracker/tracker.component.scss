@@ -15,7 +15,6 @@ a {
 
 .bottom-action-container {
 	padding: 20px;
-	margin-bottom: 150px;
 }
 
 .day-summary {
@@ -24,8 +23,12 @@ a {
 
 .trackings {
 	padding: 0px 20px;
+	margin-bottom: 150px;
 }
 
+.start-new-button {
+	float: right;
+}
 
 .date-navigation {
 	background-color: whitesmoke;
