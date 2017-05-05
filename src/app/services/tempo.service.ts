@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { ITempoBean } from '../models/tempo-bean.interface';
 
 @Injectable()
 export class TempoService {
@@ -8,13 +9,23 @@ export class TempoService {
 
 	constructor(private http: Http) { }
 
+	public postWorklogBean(bean: ITempoBean){
+		this.http.post(`${this.tempoApiHost}/worklogs/`, bean).subscribe((res) => {
+			if (res.status === 200) {
+				console.log(res);
+			}
+		}, (error) => {
+			console.warn(error);
+		});
+	}
+
 	public getWorklogs(user:string) {
 		this.http.get(`${this.tempoApiHost}/worklogs/?dateFrom=2017-04-01&dateTo=2017-04-21&username=${user}`).subscribe((res) => {
 			if (res.status === 200) {
 				console.log(res);
 			}
 		}, (error) => {
-
+			
 		});
 	}
 

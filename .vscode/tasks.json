@@ -9,15 +9,9 @@
     "tasks": [
         {
             "taskName": "run",
-            "args": ["build"],            
+            "args": ["watch"],
             "isBuildCommand": true            
-        },
-        {
-            "taskName": "electron",
-            "command": "npm",
-            "isShellCommand": true,
-            "args": ["run", "electron"]
-        },
+        },        
         {
             "taskName": "install",
             "args": ["install"]
