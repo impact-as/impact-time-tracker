@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 
 import { ITracking } from '../models/tracking.interface';
 import { TrackingService } from '../services/tracking.service';
+import { Constants } from '../constants/constants'
 
 @Component({
 	selector: 'app-tracker',
@@ -35,8 +36,8 @@ export class TrackerComponent implements OnInit {
 
 	}
 
-	public addDays() {
-		for (let i = 0; i < 15; i++) {
+	public addDays(visibleDays = Constants.visibleDays) {
+		for (let i = 0; i < visibleDays; i++) {
 			const myDate = new Date();
 			myDate.setDate(this.selectedDay.getDate() + (-7 + i));
 			this.availableDays.push(myDate);

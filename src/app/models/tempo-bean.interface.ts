@@ -10,5 +10,5 @@ export interface ITempoBean { //API 8.0.0 http://tempo.io/doc/timesheets/api/res
     comment:string //Description of the worklog
     dateStarted:string //YYYY-MM-ddT00:00:00.000+0000
     billedSeconds?:number //Billed time in seconds
-    timeSpentSeconds:number //Time worked in seconds
+    timeSpentSeconds:number //Time worked in seconds    
 }

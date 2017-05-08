@@ -8,4 +8,5 @@ export interface ITracking {
 	time: number;
 	status: TrackingStatus;
 	date: string;
+	dateObj: Date;
 }

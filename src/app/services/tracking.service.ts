@@ -59,6 +59,7 @@ export class TrackingService {
 		tracking.status = TrackingStatus.READY;
 		const newDate = date != null ? date : new Date();
 		tracking.date = new DateHelper().dateToDateString(newDate);
+		tracking.dateObj = newDate;
 		tracking.time = 0;
 
 		this.trackings.push(tracking);
@@ -81,6 +82,16 @@ export class TrackingService {
 				this.updateSubscriber.next(ChangeType.DELETED);
 			}
 		});
+	}
+	
+	public deleteAll() {
+		this.trackings.forEach((tracking, index) => {
+			this.pause(tracking._id);			
+			this.trackings.splice(index, 1);
+			this.databaseService.remove(tracking._id);
+			this.updateSubscriber.next(ChangeType.DELETED);			
+		});
+		return this.trackings;
 	}
 
 	public update(tracking: ITracking) {

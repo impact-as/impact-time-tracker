@@ -34,20 +34,44 @@ export class LayoutHeaderComponent implements OnInit {
 	}
 
 	public synchronize(){
-		let dummyBean: ITempoBean = {			
-			author:{
-				name:"mm"				
-			},
-			issue:{
-				key:"IMP-24",
-				//remainingEstimateSeconds:3600				
-			},			
-			comment:"api test 3",
-			dateStarted: "2017-05-04T00:00:00.000",
-			timeSpentSeconds:7200
-		};		
-		this.tempoService.postWorklogBean(dummyBean);
-		this.synchronizing = !this.synchronizing;
+		this.trackingService.trackings.forEach(tracking => {
+			this.synchronizing = true;
+			let aBean: ITempoBean = {			
+				author:{
+					name:"mm"
+				},
+				issue:{
+					key:tracking.jiraId
+					//remainingEstimateSeconds:3600
+				},			
+				comment:tracking.comment,
+				dateStarted: tracking.dateObj.toISOString(),
+				timeSpentSeconds: tracking.time		
+			};
+
+			this.tempoService.postWorklogBean(aBean).subscribe((res) => {
+				this.synchronizing = false;
+				if (res.status === 200) {
+					console.log(res);
+				}
+				}, (error) => {
+					console.warn(error);
+				});
+		});				
+	}
+
+	//temporary function for testing
+	public deleteAllTrackings() {
+		//console.log("trackings", this.trackingService.deleteAll());
+		var worklogObserver = this.tempoService.getWorklogs("mm").subscribe((res) => {		
+			if (res.status === 200) {
+				console.log(res);
+				window["worklogs"] = res.json();		
+			}
+		}, (error) => {
+			
+		});		
+		window["trackings"] = this.trackingService.trackings;		
 	}
 
 	public checkNetwork() {
