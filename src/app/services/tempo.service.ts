@@ -11,15 +11,15 @@ export class TempoService {
 	constructor(private http: Http) { }
 
 	public postWorklogBean(bean: ITempoBean){
-		return this.http.post(`${this.tempoApiHost}/worklogs/`, bean);
-		
-		// this.http.post(`${this.tempoApiHost}/worklogs/`, bean).subscribe((res) => {
-		// 	if (res.status === 200) {
-		// 		console.log(res);
-		// 	}
-		// }, (error) => {
-		// 	console.warn(error);
-		// });
+		return this.http.post(`${this.tempoApiHost}/worklogs/`, bean);		
+	}
+
+	public putWorklogBean(bean: ITempoBean){
+		return this.http.put(`${this.tempoApiHost}/worklogs/` + bean.id, bean);
+	}
+
+	public deleteWorklog(worklogId: number){
+		return this.http.delete(`${this.tempoApiHost}/worklogs/` + worklogId);
 	}
 
 	public getWorklogs(user:string, interval = Constants.visibleDays - 1) {
@@ -31,14 +31,7 @@ export class TempoService {
 		toDate = dateHelper.dateToRequestDate(new Date(now.getTime() + dateHelper.daysToMs(interval / 2)));
 
 		let dateQuery: string = "dateFrom=" + fromDate.dateString + "&dateTo=" + toDate.dateString; 
-		return this.http.get(`${this.tempoApiHost}/worklogs/?${dateQuery}&username=${user}`);
-		// this.http.get(`${this.tempoApiHost}/worklogs/?dateFrom=2017-04-01&dateTo=2017-04-21&username=${user}`).subscribe((res) => {		
-		// 	if (res.status === 200) {
-		// 		console.log(res);
-		// 	}
-		// }, (error) => {
-			
-		// });
+		return this.http.get(`${this.tempoApiHost}/worklogs/?${dateQuery}&username=${user}`);		
 	}
 
 	public getApprovalStatus(user: string, date: Date = new Date()) {

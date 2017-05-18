@@ -21,7 +21,8 @@ export class TrackerComponent implements OnInit {
 	public currentDay: Date;
 	public selectedDay: Date;
 	public trackings: ITracking[];
-	public totalDayHours: number = 0;
+	public visibleTrackings: ITracking[];
+	public totalDayHours: number = 0;		
 
 	constructor(public trackingService: TrackingService, public dialog: MdDialog) {
 
@@ -29,10 +30,13 @@ export class TrackerComponent implements OnInit {
 		this.selectedDay = new Date();
 
 		this.trackings = this.trackingService.trackings;
+		this.visibleTrackings = this.trackingService.visibleTrackings;
 
 		this.addDays();
 
-		this.trackingService.updateSubscriber.subscribe(change => this.updateDayHours());
+		this.trackingService.updateSubscriber.subscribe(change => 
+			this.updateDayHours()
+		);
 
 	}
 

@@ -14,13 +14,8 @@ import { DatabaseService } from '../services/database.service';
 
 import { TrackingStatus } from '../models/tracking.status';
 
-export enum ChangeType {
-	ADDED = 0,
-	DELETED = 1,
-	UPDATED = 2
-
-}
-
+import { ChangeType } from '../models/change.type';
+import { Constants } from '../constants/constants';
 
 @Injectable()
 export class TrackingService {
@@ -28,6 +23,7 @@ export class TrackingService {
 
 	public currentTracking: ITracking = { _id: '000' } as ITracking;
 	public trackings: ITracking[] = [];
+	public visibleTrackings: ITracking[] = [];
 	public totalDayHours: number = 0;
 
 	public updateSubscriber: BehaviorSubject<ChangeType> = new BehaviorSubject(0);
@@ -45,16 +41,18 @@ export class TrackingService {
 			const tracks = trackings !== null ? trackings as ITracking[] : [];
 			tracks.forEach( (item) => {
 				this.trackings.push(item);
+				if (!Constants.hiddenStatuses.find(status => status === item.status)){
+					this.visibleTrackings.push(item);
+				}				
 			});
 
 			this.updateSubscriber.next(ChangeType.UPDATED);
 		});
 	}
 
-	public add(jiraId: string = '', date: Date = null): ITracking {
+	public add(jiraId: string = '', date: Date = null, comment:string = ''): ITracking {
 		const tracking: ITracking = {} as ITracking;
-		tracking._id = new GUID().toString();
-		tracking.comment = '';
+		tracking._id = new GUID().toString();		
 		tracking.jiraId = jiraId;
 		tracking.status = TrackingStatus.READY;
 		const newDate = date != null ? date : new Date();
@@ -66,8 +64,18 @@ export class TrackingService {
 		this.databaseService.insert(tracking);
 		this.updateSubscriber.next(ChangeType.ADDED);
 		this.start(tracking._id);
-
 		return tracking;
+	}
+
+	public addMultiple(trackings: Array<ITracking>): Array<ITracking> {
+		trackings.forEach(t => {
+			t._id = new GUID().toString();
+			t.status = TrackingStatus.READY;
+			this.trackings.push(t);
+		});
+		this.databaseService.insert(trackings);
+		this.updateSubscriber.next(ChangeType.ADDED);
+		return trackings;
 	}
 
 	public delete(id: string) {
@@ -82,6 +90,16 @@ export class TrackingService {
 				this.updateSubscriber.next(ChangeType.DELETED);
 			}
 		});
+	}
+
+	public deleteMultiple(trackings) {
+		trackings.forEach((tracking, index) => {
+			this.pause(tracking._id);			
+			this.trackings.splice(index, 1);
+			this.databaseService.remove(tracking._id);
+			this.updateSubscriber.next(ChangeType.DELETED);			
+		});
+		return trackings;
 	}
 	
 	public deleteAll() {
@@ -118,7 +136,7 @@ export class TrackingService {
 
 	public getHoursPrDay(day: Date) {
 		const dayString = new DateHelper().dateToDateString(day);
-		const trackings = this.trackings.filter( (item: ITracking) => {
+		const trackings = this.visibleTrackings.filter( (item: ITracking) => {
 			return item.date === dayString;
 		});
 		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );

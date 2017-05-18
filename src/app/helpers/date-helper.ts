@@ -9,6 +9,10 @@ export class DateHelper {
 
           return formattedDate;
     }
+    
+    public dateStringToDateObject(dateString:string): Date {
+        return new Date(dateString.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3"));
+    }
 
 
     public getWeekNumber(date:Date = new Date()):number {

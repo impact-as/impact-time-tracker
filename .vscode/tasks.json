@@ -7,7 +7,7 @@
     "showOutput": "always",
     //"suppressTaskName": true,
     "tasks": [
-        {
+        {            
             "taskName": "run",
             "args": ["watch"],
             "isBuildCommand": true            
