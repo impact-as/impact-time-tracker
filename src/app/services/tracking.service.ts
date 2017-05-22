@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable,  } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ITracking } from '../models/tracking.interface';
@@ -22,11 +22,11 @@ export class TrackingService {
 
 
 	public currentTracking: ITracking = { _id: '000' } as ITracking;
-	public trackings: ITracking[] = [];
-	public visibleTrackings: ITracking[] = [];
+	public trackings: ITracking[] = [];	
 	public totalDayHours: number = 0;
 
 	public updateSubscriber: BehaviorSubject<ChangeType> = new BehaviorSubject(0);
+	public trackingSubscriber: BehaviorSubject<ITracking> = new BehaviorSubject(this.currentTracking);
 
 	public track: ITrack  = { active: false } as ITrack;
 
@@ -36,14 +36,23 @@ export class TrackingService {
 
 	}
 
+	private cleanTrackings(){
+		this.trackings = [];
+	}
+
+	public trackingVisible(tracking: ITracking): boolean{
+		return (!Constants.hiddenStatuses.find(status => status === tracking.status));
+	}
+
 	public getTrackings() {
+		this.cleanTrackings();
 		this.databaseService.findAll().then( (trackings) => {
-			const tracks = trackings !== null ? trackings as ITracking[] : [];
-			tracks.forEach( (item) => {
+			const tracks = trackings !== null ? trackings as ITracking[] : [];			
+			tracks.forEach( (item) => {				
+				// if (!Constants.hiddenStatuses.find(status => status === item.status)){
+				// 	this.visibleTrackings.push(item);
+				// }
 				this.trackings.push(item);
-				if (!Constants.hiddenStatuses.find(status => status === item.status)){
-					this.visibleTrackings.push(item);
-				}				
 			});
 
 			this.updateSubscriber.next(ChangeType.UPDATED);
@@ -63,7 +72,7 @@ export class TrackingService {
 		this.trackings.push(tracking);
 		this.databaseService.insert(tracking);
 		this.updateSubscriber.next(ChangeType.ADDED);
-		this.start(tracking._id);
+		this.start(tracking._id);		
 		return tracking;
 	}
 
@@ -78,44 +87,63 @@ export class TrackingService {
 		return trackings;
 	}
 
-	public delete(id: string) {
+	public delete(id: string, forReal: boolean = false) {
 		if (id === this.currentTracking._id) {
 			this.pause(id);
 		}
 
 		this.trackings.forEach((tracking, index) => {
 			if (id === tracking._id) {
-				this.trackings.splice(index, 1);
-				this.databaseService.remove(tracking._id);
-				this.updateSubscriber.next(ChangeType.DELETED);
+				if (!tracking.worklogId) {// just delete non synchronized trackings
+					forReal = true;
+				}
+				if (forReal) {
+					this.trackings.splice(index, 1);
+					this.databaseService.remove(tracking._id);
+				}
+				else {
+					tracking.status = TrackingStatus.DELETED;
+					//tracking = {...tracking, status:TrackingStatus.DELETED};
+					// let newObj = Object.assign({},tracking);
+					// newObj.status = TrackingStatus.DELETED;
+					// tracking = Object.assign({}, newObj);
+					this.update(tracking);
+				}
+				//this.updateSubscriber.next(ChangeType.DELETED);
+				this.trackingSubscriber.next(tracking);
 			}
-		});
+		});		
 	}
-
+	
 	public deleteMultiple(trackings) {
+		this.trackings = this.trackings.filter((tracking:ITracking) => {
+			return !trackings.find((toKeep:ITracking) =>{
+				return toKeep._id === tracking._id;
+			});
+		});		
 		trackings.forEach((tracking, index) => {
-			this.pause(tracking._id);			
-			this.trackings.splice(index, 1);
+			this.pause(tracking._id);						
 			this.databaseService.remove(tracking._id);
+			//tracking.status = TrackingStatus.DELETED;
 			this.updateSubscriber.next(ChangeType.DELETED);			
 		});
-		return trackings;
+		return this.trackings;
 	}
 	
 	public deleteAll() {
 		this.trackings.forEach((tracking, index) => {
 			this.pause(tracking._id);			
-			this.trackings.splice(index, 1);
 			this.databaseService.remove(tracking._id);
 			this.updateSubscriber.next(ChangeType.DELETED);			
 		});
-		return this.trackings;
+		this.cleanTrackings();		
 	}
 
 	public update(tracking: ITracking) {
 		this.saveTracking(tracking);
 		this.updateSubscriber.next(ChangeType.UPDATED);
 	}
+	
 
 	public getHoursPrWeek() {
 		const trackings = this.getTrackingsPrWeek();
@@ -130,14 +158,14 @@ export class TrackingService {
 		const firstdayString = new DateHelper().dateToDateString(firstday);
 		const lastdayString = new DateHelper().dateToDateString(lastday);
 		return this.trackings.filter( (item: ITracking) => {
-			return item.date >= firstdayString && item.date <= lastdayString;
+			return this.trackingVisible(item) && item.date >= firstdayString && item.date <= lastdayString;
 		});
 	}
 
 	public getHoursPrDay(day: Date) {
 		const dayString = new DateHelper().dateToDateString(day);
-		const trackings = this.visibleTrackings.filter( (item: ITracking) => {
-			return item.date === dayString;
+		const trackings = this.trackings.filter( (item: ITracking) => {
+			return this.trackingVisible(item) && item.date === dayString;
 		});
 		const sum = trackings.reduce( ( p, c ) => p + c.time, 0 );
 		return sum;

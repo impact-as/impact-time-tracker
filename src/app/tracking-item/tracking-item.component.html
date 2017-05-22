@@ -1,3 +1,4 @@
+<ng-container *ngIf="visible">
 <button class="state-button"
    [class.state-button__playing]="isCurrentTracking()"
    (click)="toggleTracking()">
@@ -31,5 +32,5 @@
 			<a (click)="deleteTracking()"><i class="material-icons actions_icon">delete</i></a>
 		</div>
 	</div>
-
 </div>
+</ng-container>

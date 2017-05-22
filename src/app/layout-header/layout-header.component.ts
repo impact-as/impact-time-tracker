@@ -21,7 +21,7 @@ import { SessionService } from '../services/session.service';
 @Component({
 	selector: 'app-header',
 	templateUrl: './layout-header.component.html',
-	styleUrls: ['./layout-header.component.scss']
+	styleUrls: ['./layout-header.component.scss']	
 })
 export class LayoutHeaderComponent implements OnInit {
 	public synchronizing:boolean = false;	
@@ -85,7 +85,8 @@ export class LayoutHeaderComponent implements OnInit {
 	private isomorphicEntries(tracking:ITracking, worklog:ITempoBean){
 		let dateHelper = new DateHelper();
 		let trackingDateObj = dateHelper.dateStringToDateObject(tracking.date);
-		let worklogDateObj = new Date(worklog.dateStarted);
+		let worklogDate = worklog.dateStarted.split("T")[0];
+		let worklogDateObj = new Date(worklogDate);
 		let sameDate = trackingDateObj.toISOString() === worklogDateObj.toISOString();
 		let sameComment = tracking.comment === worklog.comment;
 		let sameJira = tracking.jiraId === worklog.issue.key;
@@ -116,7 +117,7 @@ export class LayoutHeaderComponent implements OnInit {
 
 			serverWorklogs.forEach((worklog:ITempoBean) => {
 				// Worklog doesn't exist on client -> add locally
-				if (localTrackings.length === 0 || !localTrackings.filter(t => !t.queuedUp).find(t => worklog.id === t.worklogId)) {
+				if (localTrackings.length === 0 || !localTrackings.find(t => worklog.id === t.worklogId)) {
 					localChanges.push(this.worklogToTracking(worklog, ChangeType.ADDED));
 				}
 				
@@ -197,7 +198,7 @@ export class LayoutHeaderComponent implements OnInit {
 			let deleteResult = this.trackingService.deleteMultiple(deleteChangesLocal);
 		}
 		// Update		
-		
+
 
 		// Handle server changes
 		// Add
@@ -211,21 +212,26 @@ export class LayoutHeaderComponent implements OnInit {
 					return responseObj;})
 			);
 		});
-		Observable.forkJoin(httpAddObservables).subscribe(response => {
-			console.log(response);
-		})
+		// Observable.forkJoin(httpAddObservables).subscribe(response => {
+		// 	console.log(response);
+		// });
 
 		// Delete
-		let deleteChangesServer = serverChanges.filter(change => change.changeType === ChangeType.UPDATED);		
+		let deleteChangesServer = serverChanges.filter(change => change.changeType === ChangeType.DELETED);		
 		let httpDeleteObservables = [];
 		deleteChangesServer.forEach(worklog => {
-			httpUpdateObservables.push(
-				this.tempoService.deleteWorklog(worklog.id).map(response => { return response.json(); })
+			httpDeleteObservables.push(
+				this.tempoService.deleteWorklog(worklog.id).map(response => { 
+					if (response.status === 200) {						
+						this.trackingService.delete(worklog.tracking._id, true);
+					}
+					return response;
+				})
 			);
 		});
-		Observable.forkJoin(httpDeleteObservables).subscribe(response => {
-			console.log(response);
-		});
+		// Observable.forkJoin(httpDeleteObservables).subscribe(response => {			
+		// 	console.log(response);
+		// });
 
 		// Update
 		let updateChangesServer = serverChanges.filter(change => change.changeType === ChangeType.UPDATED);		
@@ -235,11 +241,18 @@ export class LayoutHeaderComponent implements OnInit {
 				this.tempoService.putWorklogBean(worklog).map(response => { return response.json(); })
 			);
 		});
-		Observable.forkJoin(httpUpdateObservables).subscribe(response => {
-			console.log(response);
-		});
-
-		this.synchronizing = false;
+		var apiObservables = [...httpAddObservables, ...httpUpdateObservables, ...httpDeleteObservables];
+		if (apiObservables.length > 0) {
+			Observable.forkJoin(apiObservables).subscribe(response => {
+				console.log(response);
+				this.synchronizing = false;
+			});
+		}
+		else {
+			this.synchronizing = false;
+		}
+		
+		this.trackingService.trackings.forEach((tracking:ITracking) => { tracking.queuedUp = false; });		
 	}
 
 	public updateLocalWithSyncResult(updateResult: ITempoBean, tracking: ITracking) {
@@ -290,7 +303,7 @@ export class LayoutHeaderComponent implements OnInit {
 		this.getWorklogs();
 		window["trackings"] = this.trackingService.trackings;
 		if (event.shiftKey){
-			console.log("deleting all trackings", this.trackingService.deleteAll());
+			console.log("deleting all trackings");
 			return;
 		}
 		

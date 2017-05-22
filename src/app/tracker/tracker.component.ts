@@ -12,16 +12,14 @@ import { Constants } from '../constants/constants'
 @Component({
 	selector: 'app-tracker',
 	templateUrl: './tracker.component.html',
-	styleUrls: ['./tracker.component.scss'],
-
+	styleUrls: ['./tracker.component.scss']
 })
 export class TrackerComponent implements OnInit {
 
 	public availableDays:Date[] = [];
 	public currentDay: Date;
 	public selectedDay: Date;
-	public trackings: ITracking[];
-	public visibleTrackings: ITracking[];
+	public trackings: ITracking[];	
 	public totalDayHours: number = 0;		
 
 	constructor(public trackingService: TrackingService, public dialog: MdDialog) {
@@ -29,8 +27,7 @@ export class TrackerComponent implements OnInit {
 		this.currentDay = new Date();
 		this.selectedDay = new Date();
 
-		this.trackings = this.trackingService.trackings;
-		this.visibleTrackings = this.trackingService.visibleTrackings;
+		this.trackings = this.trackingService.trackings;	
 
 		this.addDays();
 
