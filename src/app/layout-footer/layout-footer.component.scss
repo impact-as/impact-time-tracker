@@ -5,10 +5,17 @@
 	left:0;
 	width: 100%;
 	box-shadow: 0 0 60px -10px rgba(#000, 0.15);
-	transform: translateY(45px);
-	transition: transform 0.3s;
+}
+
+.footer-tracking {
+	tracking-item {
+		transition: max-height 0.3s ease-in-out;
+		max-height: 80px;
+	}
 
 	&:hover {
-		transform: translateY(0);
+		tracking-item {
+			max-height: 130px;
+		}
 	}
 }

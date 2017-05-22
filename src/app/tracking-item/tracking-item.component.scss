@@ -6,6 +6,7 @@ $playing: #94C11E;
 	position: relative;
 	display: block;
 	padding: 25px 25px 25px 90px;
+	box-sizing: border-box;
 
 	&:hover {
 		.actions {
@@ -113,11 +114,14 @@ $playing: #94C11E;
 	display: block;
 	text-align: center;
 	position: absolute;
-	top:10px;
-	left:10px;
+	top: 0;
+	left: 0;
+	width: 75px;
+	height: 100%;
+	padding: 10px;
 	color:#e2e2e2;
 	cursor:pointer;
-	background-color:transparent;
+	background-color: transparent;
 	border:none;
 	-webkit-appearance:none;
 	-moz-appearance:none;
@@ -136,5 +140,4 @@ $playing: #94C11E;
 	&__playing {
 		color: $playing;
 	}
-
 }

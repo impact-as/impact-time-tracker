@@ -20,7 +20,6 @@ export class TrackingItemComponent implements OnInit {
 	public tracking: ITracking;
 
 	constructor(public trackingService: TrackingService, public dialog: MdDialog) {
-
 	}
 
 	public openSelectJiraIdDialog(tracking: ITracking) {
@@ -63,7 +62,7 @@ export class TrackingItemComponent implements OnInit {
 		const instance = this.dialog.open(TrackerConfirmDeleteComponent);
 		instance.componentInstance['id'] = this.tracking._id;
 	}
+
 	ngOnInit() {
 	}
-
 }
