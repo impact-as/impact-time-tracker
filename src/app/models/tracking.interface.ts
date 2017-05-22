@@ -14,10 +14,6 @@ export interface ITracking {
 	
 	//Attributes for sync - todo: move to separate common interfacer for tracking & bean
 	queuedUp?: boolean;
-	changeType?: ChangeType;
-
-    forAdding?: boolean;
-	forUpdating?: boolean;
-    forDeleting?: boolean;
-	lastChange?: string
+	changeType?: ChangeType;    
+	lastChanged?: string
 }

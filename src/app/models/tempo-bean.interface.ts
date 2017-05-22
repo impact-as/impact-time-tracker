@@ -19,9 +19,5 @@ export interface ITempoBean { //API 8.0.0 http://tempo.io/doc/timesheets/api/res
     //Attributes for sync - todo: move to separate common interfacer for tracking & bean
     queuedUp?: boolean;
     changeType?: ChangeType;
-    tracking?: ITracking;
-
-    forAdding?: boolean;
-    forUpdating?: boolean;
-    forDeleting?: boolean;
+    tracking?: ITracking;    
 }
