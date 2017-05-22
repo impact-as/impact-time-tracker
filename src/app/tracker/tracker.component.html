@@ -15,7 +15,7 @@
 </div>
 
 <div class="trackings">
-	<app-tracking-item *ngFor="let tracking of trackings | filterDate:selectedDay" [tracking]="tracking"></app-tracking-item>
+	<tracking-item *ngFor="let tracking of trackings | filterDate:selectedDay" [tracking]="tracking"></tracking-item>
 </div>
 
 

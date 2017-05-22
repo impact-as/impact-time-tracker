@@ -10,7 +10,7 @@ import { JiraChangeId } from '../jira-change-id/jira-change-id.component';
 import { TrackerConfirmDeleteComponent } from '../tracker-confirm-delete/tracker-confirm-delete.component';
 
 @Component({
-	selector: 'app-tracking-item',
+	selector: 'tracking-item',
 	templateUrl: './tracking-item.component.html',
 	styleUrls: ['./tracking-item.component.scss']
 })
