@@ -5,15 +5,16 @@ $playing: #94C11E;
 	margin-bottom: 1px;
 	position: relative;
 	display: block;
-	border-top: 1px solid #e2e2e2;
+	padding: 25px 25px 25px 90px;
 
-	&:first-child {
-		border-top:none;
+	&:hover {
+		.actions {
+			opacity: 1;
+		}
 	}
 }
 
 .info-container {
-	padding: 15px 10px 15px 90px;
 	display: flex;
 	flex-direction: row;
 }
@@ -89,14 +90,21 @@ $playing: #94C11E;
 .actions {
 	margin-top: auto;
 	margin-left: auto;
+	opacity: 0;
+	transition: opacity 0.3s;
 
 	&_icon {
 		font-size: 18px;
 	}
 
 	a {
-		color:#CCC;
 		display: inline-block;
+		opacity: 0.3;
+		transition: opacity 0.3s;
+
+		&:hover {
+			opacity: 0.7;
+		}
 	}
 }
 

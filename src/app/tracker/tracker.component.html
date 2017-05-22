@@ -14,7 +14,7 @@
 	<button md-raised-button color="primary" class="start-new-button" (click)="addNewTracking()">Start ny registrering</button>
 </div>
 
-<div class="trackings">
+<div class="tracker-list">
 	<tracking-item *ngFor="let tracking of trackings | filterDate:selectedDay" [tracking]="tracking"></tracking-item>
 </div>
 

@@ -21,9 +21,14 @@ a {
 	padding: 20px;
 }
 
-.trackings {
-	padding: 0px 20px;
+.tracker-list {
 	margin-bottom: 150px;
+
+	tracking-item {
+		&:nth-child(2n) {
+			background-color: rgba(#000, 0.035);
+		}
+	}
 }
 
 .start-new-button {
