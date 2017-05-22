@@ -35,13 +35,15 @@ export class TrackingService {
 	public track: ITrack  = { active: false } as ITrack;
 
 	constructor(private storageService: StorageService, private databaseService: DatabaseService) {
+		let active = <string>this.storageService.read('tracker-active');
 
-		this.getTrackings();
-
+		this.getTrackings().then(() => {
+			this.start(active);
+		});
 	}
 
 	public getTrackings() {
-		this.databaseService.findAll().then( (trackings) => {
+		return this.databaseService.findAll().then( (trackings) => {
 			const tracks = trackings !== null ? trackings as ITracking[] : [];
 			tracks.forEach( (item) => {
 				this.trackings.push(item);
@@ -132,13 +134,17 @@ export class TrackingService {
 
 				clearInterval(this.timer);
 				this.timer = setInterval(this.updateTimer.bind(this), 1000);
+
+				this.storageService.write('tracker-active', String(id));
 			}
 		});
 	}
+
 	public pause(id: string) {
 		this.track.active = false;
 		this.currentTracking = { _id: '000' } as ITracking;
 		clearInterval(this.timer);
+		this.storageService.write('tracker-active', '');
 	}
 
 	private updateTimer() {
