@@ -9,6 +9,7 @@ import { Constants } from '../constants/constants';
 import { DateHelper } from '../helpers/date-helper';
 import { ChangeType } from '../models/change.type';
 import { SessionService } from '../services/session.service';
+import { LoginService } from './login.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -16,7 +17,7 @@ import { Observable } from 'rxjs/Observable';
 export class SynchronizationService {	
 	public user: any;
 
-	constructor(public trackingService: TrackingService, private tempoService: TempoService, private sessionService: SessionService) {
+	constructor(public trackingService: TrackingService, private tempoService: TempoService, private sessionService: SessionService, private loginService: LoginService) {
 		this.setSessionInfo();
 	}
 
@@ -220,8 +221,14 @@ export class SynchronizationService {
 	public setSessionInfo(){
 		this.sessionService.getUser().subscribe(res => { 
 			this.user = res.json();
-		}, err => 
-		console.log(err)
+		}, err => {
+			if (err.status === 401){
+				this.loginService.openLoginPrompt()
+			}
+			else {
+				console.log("Error getting user session", err)
+			}
+		}
 		);
 	}
 
@@ -230,7 +237,7 @@ export class SynchronizationService {
 		this.getWorklogs();
 		window["trackings"] = this.trackingService.trackings;
 		if (event.shiftKey){
-			console.log("deleting all trackings");
+			console.log("deleting all trackings", this.trackingService.deleteAll());
 			return;
 		}
 		
