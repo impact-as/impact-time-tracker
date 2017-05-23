@@ -130,14 +130,23 @@ $playing: #94C11E;
 
 	span {
 		display: block;
+		transition: 0.3s transform, 0.3s color;
 	}
 
 	i {
 		font-size: 50px;
 	}
 
-	&:hover,
 	&__playing {
-		color: $playing;
+		span {
+			color: $playing;
+		}
+	}
+
+	&:hover {
+		span {
+			color: $playing;
+			transform: scale(1.2);
+		}
 	}
 }
