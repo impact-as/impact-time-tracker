@@ -22,7 +22,7 @@ export class TrackingService {
 
 
 	public currentTracking: ITracking = { _id: '000' } as ITracking;
-	public trackings: ITracking[] = [];	
+	public trackings: ITracking[] = [];	//Todo: change to observable
 	public totalDayHours: number = 0;
 
 	public updateSubscriber: BehaviorSubject<ChangeType> = new BehaviorSubject(0);
@@ -92,7 +92,7 @@ export class TrackingService {
 			this.pause(id);
 		}
 
-		this.trackings.forEach((tracking, index) => {
+		let newTrackings = this.trackings.map((tracking, index) => {
 			if (id === tracking._id) {
 				if (!tracking.worklogId) {// just delete non synchronized trackings
 					forReal = true;
@@ -103,18 +103,19 @@ export class TrackingService {
 				}
 				else {
 					tracking.status = TrackingStatus.DELETED;
-					//tracking = {...tracking, status:TrackingStatus.DELETED};
-					// let newObj = Object.assign({},tracking);
-					// newObj.status = TrackingStatus.DELETED;
-					// tracking = Object.assign({}, newObj);
+					let newObj = Object.assign({},tracking);
+					newObj.status = TrackingStatus.DELETED;
+					tracking = Object.assign({}, newObj);					
 					this.update(tracking);
 				}
 				//this.updateSubscriber.next(ChangeType.DELETED);
-				this.trackingSubscriber.next(tracking);
+				this.trackingSubscriber.next(tracking);								
 			}
-		});		
+			return tracking
+		});
+		this.trackings = newTrackings;	
 	}
-	
+
 	public deleteMultiple(trackings) {
 		this.trackings = this.trackings.filter((tracking:ITracking) => {
 			return !trackings.find((toKeep:ITracking) =>{
