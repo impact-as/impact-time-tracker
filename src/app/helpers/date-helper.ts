@@ -9,14 +9,32 @@ export class DateHelper {
 
           return formattedDate;
     }
+    
+    public dateStringToDateObject(dateString:string): Date {
+        return new Date(dateString.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3"));
+    }
 
 
     public getWeekNumber(date:Date = new Date()):number {
         date.setHours(0, 0, 0, 0);
         date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
         var week1 = new Date(date.getFullYear(), 0, 4);
-        return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000
-                            - 3 + (week1.getDay() + 6) % 7) / 7);
+        return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
     }
 
+    public daysToMs (days: number) {
+		return days*24*60*60*1000;
+	}
+
+	public dateToRequestDate (date: Date){				
+		let year = date.getFullYear(),
+		month = date.getMonth() + 1,
+		day = date.getDate();
+		return {
+			year: year,
+			month : month,
+			day: day, 
+			dateString: year + "-" + month + "-" + day
+		}
+	}
 }

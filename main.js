@@ -1,6 +1,11 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, session} = require('electron');
 const path = require('path');
 const url = require('url');
+
+const requestFilter = {
+  urls: ['*://jira.impact.dk/rest/tempo-timesheets/3*']
+};
+
 
 let win;
 
@@ -14,8 +19,15 @@ function createWindow () {
 	win.loadURL(url.format({
 		pathname: path.join(__dirname, '/dist/index.html'),
 		protocol: 'file:',
-		slashes: true
+		slashes: true		
 	}));
+	
+
+	session.defaultSession.webRequest.onBeforeSendHeaders(requestFilter, (details, callback) => { //Why, you ask? The Tempo API defecates if we use the real userAgent
+		details.requestHeaders['User-Agent'] = 'Mozilla/5.0 (Windows NT 6.3; Win64; x64; AppleWebKit-537.36; Chrome-45.0.2454.85; Electron-0.34.2; Safari-537.36) like Gecko';
+		callback({ cancel: false, requestHeaders: details.requestHeaders });
+	});
+	
 
 	if(process.NODE_EVN !== 'production') {
 		win.webContents.openDevTools()

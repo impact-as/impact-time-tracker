@@ -80,7 +80,15 @@ export class JiraCaseService {
 	}
 
 	public search(term: string): Observable<any[]> {
-		return this.http.get(`${this.jiraApiHost}/search?jql=summary~"${term}"+order+by+createddate`).map(response => response.json());
+		let summarySearch = this.http.get(`${this.jiraApiHost}/search?jql=summary~"${term}"+order+by+createddate`).map(response => response.json()),
+		keySearch = this.http.get(`${this.jiraApiHost}/search?jql=key="${term}"+order+by+createddate`).map(response => response.json()).catch(response => Observable.of({issues:[]}));
+		
+		return Observable.forkJoin([summarySearch,keySearch]).map(res => {
+				res[0].issues = res[0].issues.concat(res[1].issues);
+				return res[0];
+			}
+		);
+		
+		//return this.http.get(`${this.jiraApiHost}/search?jql=summary~"${term}"+order+by+createddate`).map(response => response.json());		
 	}
-
 }

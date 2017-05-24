@@ -1,40 +1,68 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
-import { TrackingService } from '../services/tracking.service';
-import { ITracking } from '../models/tracking.interface';
+import { SynchronizationService } from '../services/synchronization.service';
 
 import { WeekgraphComponent } from '../weekgraph/weekgraph.component';
 import { JiraFilterAdminComponent } from '../jira-filter-admin/jira-filter-admin.component';
+import { SessionService } from '../services/session.service';
 
 @Component({
 	selector: 'app-header',
 	templateUrl: './layout-header.component.html',
-	styleUrls: ['./layout-header.component.scss']
+	styleUrls: ['./layout-header.component.scss']	
 })
 export class LayoutHeaderComponent implements OnInit {
-
-	public status:string = 'offline';
+	public synchronizing:boolean = false;	
+	public synchronizationSuccess:boolean = false;	
+	public synchronizationFail:boolean = false;	
+	
+	public status:string = 'offline';	
+	public user: any;
 
 	@HostListener("window:offline", [])
 	onOffline() {
 		this.checkNetwork();
 	}
 
-
 	@HostListener("window:online", [])
 	onLine() {
 		this.checkNetwork();
 	}
 
-	constructor(public trackingService: TrackingService,
-		private dialog: MdDialog) {
-
-
+	constructor(private dialog: MdDialog, private synchronizationService: SynchronizationService) {
 	}
 
+	private resetSyncIcon(){
+		this.synchronizationSuccess = false;
+		this.synchronizationFail = false;		
+	}
+	
+	public synchronize(){
+		if (!this.checkNetwork()){
+			return;
+		}
+		this.resetSyncIcon();
+		this.synchronizing = true;
+		let syncObservable = this.synchronizationService.getWorklogs();		
+		syncObservable.subscribe(results => {
+			let changes = this.synchronizationService.mergeTrackings(this.synchronizationService.getTrackings(),results.json());
+			this.synchronizationService.updateChanges(changes.localChanges, changes.serverChanges).subscribe(response => {
+				console.log(response);
+				this.synchronizing = false;
+				this.synchronizationSuccess = true;
+			});;			
+		}
+		, error => { 
+			console.log("Error getting tempo worklogs", error);
+			this.synchronizing = false;
+			this.synchronizationFail = true;
+		});		
+	}	
+	
 	public checkNetwork() {
 		this.status = navigator.onLine ? 'online' : 'offline';
+		return navigator.onLine;
 	}
 
 	public openWeekGraph() {
@@ -50,9 +78,13 @@ export class LayoutHeaderComponent implements OnInit {
 			width: '80%',
 		});
 	}
-
 	ngOnInit() {
-		this.checkNetwork();
+		this.checkNetwork();		
+	}
+
+	//Function for testing
+	public testFunction(event) {
+		this.synchronizationService.testFunction(event);
 	}
 
 }

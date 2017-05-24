@@ -7,10 +7,21 @@
 }
 
 .network__sync {
+	user-select: none;
 	font-size:18px;
 	cursor:pointer;
 	color:#666;
 	vertical-align: middle;
+	
+	&--updating {
+		animation: network-sync 1s infinite;
+	}
+	&--success {
+		animation: network-sync-success 15s;
+	}
+	&--fail {
+		animation: network-sync-fail 15s;
+	}
 }
 
 .network-status {
@@ -27,5 +38,30 @@
 
 	&_online {
 		background-color:#94C11E;
+	}
+}
+/* Anitmation */
+@keyframes network-sync {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+@keyframes network-sync-success {
+	from {		
+		color: green;
+	}
+	to {		
+		color:initial;
+	}
+}
+@keyframes network-sync-fail {
+	from {		
+		color: red;
+	}
+	to {		
+		color:initial;
 	}
 }

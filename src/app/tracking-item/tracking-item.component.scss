@@ -1,7 +1,7 @@
 $not-valid: rgba(#d05921, 0.3);
 $playing: #94C11E;
 
-:host {
+:host:not(:empty) {
 	margin-bottom: 1px;
 	position: relative;
 	display: block;
